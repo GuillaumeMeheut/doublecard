@@ -1,0 +1,19 @@
+{
+  "page_title": "Lobby | DoubleCard",
+  "page_description": "Register or Login",
+  "page_keywords": "doublecard, card game, poker, multiplayer",
+  "create_room": "Create a room",
+  "search": "Search by games, players",
+  "search_game": "Search a game",
+  "check_rule": "See the rules",
+  "cancel": "Cancel",
+  "next": "Next",
+  "previous": "Previous",
+  "room_name": "Name of the room",
+  "nb_player": "Max number of players",
+  "nb_round": "Number of rounds",
+  "public": "Public",
+  "private": "Private",
+  "create": "Create",
+  "join": "Join"
+}
