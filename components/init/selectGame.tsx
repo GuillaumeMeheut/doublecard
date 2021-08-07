@@ -6,10 +6,9 @@ import {
   ModalHeader,
   Tooltip,
 } from '@chakra-ui/react'
-import { AppImage, AppInputSearch } from 'components'
+import { AppImage, AppInputSearch, AppButton, AppImageLink } from 'components'
 import { Color, ComponentSize, ImageSize, Spaces } from 'theme'
 import { Games } from 'utils'
-import { AppButton, AppImageLink } from 'components/general'
 import { TFunction } from 'next-i18next'
 
 type Props = {

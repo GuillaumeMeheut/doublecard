@@ -1,8 +1,17 @@
-const cli = require('next/dist/cli/next-start')
+const { https } = require('firebase-functions')
+const { default: next } = require('next')
 
-cli.nextStart([
-  '-p',
-  process.env.PORT || 3000,
-  '-H',
-  process.env.HOSTNAME || '0.0.0.0',
-])
+const isDev = process.env.NODE_ENV !== 'production'
+
+const server = next({
+  dev: isDev,
+  //location of .next generated after running -> yarn build
+  conf: { distDir: '.next' },
+})
+
+const nextjsHandle = server.getRequestHandler()
+exports.nextServer = https.onRequest((req, res) => {
+  return server.prepare().then(() => {
+    return nextjsHandle(req, res)
+  })
+})

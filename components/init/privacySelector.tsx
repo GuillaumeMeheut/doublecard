@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import { Box, BoxProps } from '@chakra-ui/react'
 import { UnlockIcon, LockIcon } from '@chakra-ui/icons'
-import { AppText } from 'components'
+import { AppInputPassword, AppText } from 'components'
 import { Color, FontSize, InputSize, Spaces } from 'theme'
 import { TFunction } from 'next-i18next'
-import { AppInputPassword } from 'components/general'
 
 type Props = {
   t: TFunction
