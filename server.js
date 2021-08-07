@@ -1,5 +1,5 @@
-const { https } = require('firebase-functions')
-const { default: next } = require('next')
+import { https } from 'firebase-functions'
+import next from 'next'
 
 const isDev = process.env.NODE_ENV !== 'production'
 
