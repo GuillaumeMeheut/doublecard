@@ -7,7 +7,6 @@ import {
   LobbyCardDuno,
   ModalInit,
 } from 'components'
-import useSocket from 'hooks/useSocket'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import React, { useState } from 'react'
@@ -50,12 +49,10 @@ export default function Index() {
       ],
     },
   ])
-  const socket = useSocket()
 
-  if (socket)
-    socket.on('createLobby', (data) => {
-      setGames([...games, data])
-    })
+  // socket.on('createLobby', (data) => {
+  //   setGames([...games, data])
+  // })
 
   const returnCard = (setting) => {
     switch (setting.type) {
