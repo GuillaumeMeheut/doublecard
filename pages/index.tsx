@@ -19,6 +19,8 @@ export default function Index() {
   const t2 = useTranslation('init')
 
   const [openModal, setOpenModal] = useState<boolean>(false)
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [games, setGames] = useState<Array<DunoSettingLobby>>([
     {
       _id: '16516516',
@@ -63,7 +65,6 @@ export default function Index() {
     }
   }
 
-  console.log(games)
   return (
     <>
       <AppHead
