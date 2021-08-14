@@ -7,14 +7,14 @@ export const Friends: FunctionComponent = () => {
   const user = { username: 'Guillaume', status: 'available' }
   const friends = [
     {
-      _id: '7899456',
+      id: '7899456',
       username: 'Colin',
       status: 'away',
       profilPic: 'https://picsum.photos/300/300',
       lastMsg: 'Heyy comment tu vas ?',
     },
     {
-      _id: '12317576',
+      id: '12317576',
       username: 'Nathan',
       status: 'absent',
       profilPic: 'https://picsum.photos/800/300',
@@ -22,14 +22,14 @@ export const Friends: FunctionComponent = () => {
         'Salut monn super bro est-ce que ça te dirais de venir jouer avec moi ?',
     },
     {
-      _id: '785646',
+      id: '785646',
       username: 'fdsfs',
       status: 'away',
       profilPic: 'https://picsum.photos/400/300',
       lastMsg: 'Heyy comment tu vas ?',
     },
     {
-      _id: '12647576',
+      id: '12647576',
       username: 'xcwc',
       status: 'available',
       profilPic: 'https://picsum.photos/500/300',
@@ -37,14 +37,14 @@ export const Friends: FunctionComponent = () => {
         'Salut monn super bro est-ce que ça te dirais de venir jouer avec moi ?',
     },
     {
-      _id: '796456',
+      id: '796456',
       username: 'Colin',
       status: 'away',
       profilPic: 'https://picsum.photos/200/300',
       lastMsg: 'Heyy comment tu vas ?',
     },
     {
-      _id: '12316476',
+      id: '12316476',
       username: 'Nathan',
       status: 'absent',
       profilPic: 'https://picsum.photos/600/300',

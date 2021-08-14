@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, useToast } from '@chakra-ui/react'
 import {
   AppButton,
   AppButtonLink,
@@ -11,45 +11,71 @@ import {
 import { Form, Formik } from 'formik'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import React from 'react'
 import { ButtonSize, Color, ColorHover, FontSize, Spaces } from 'theme'
-import { getLanguageHeaders } from 'utils'
+import { getLanguageHeaders, useAuth } from 'utils'
+import { useRouter } from 'next/router'
 
 export default function Index() {
   const t1 = useTranslation('common')
   const t2 = useTranslation('auth')
 
+  const { signup } = useAuth()
+  const toast = useToast()
+  const router = useRouter()
+
+  const signUp = ({ email, password, pseudo }) => {
+    signup(email, password, pseudo)
+      .then(() => {
+        toast({
+          title: 'Success!',
+          description: 'Your account has been created.',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        })
+        router.push('/')
+      })
+      .catch((error) => {
+        toast({
+          title: 'An error occurred.',
+          description: error.message,
+          status: 'error',
+          duration: 7000,
+          isClosable: true,
+        })
+      })
+  }
+
   const validatePseudo = (value) => {
     let error
-    if (!value) error = '*Required'
-    else if (value.length > 12) error = 'Pseudo must be 12 characters long max.'
-    else if (value.length < 3) error = 'Pseudo must be 3 characters long.'
+    if (!value) error = t1.t('auth:required')
+    else if (value.length > 12) error = t1.t('auth:pseudo_length_max')
+    else if (value.length < 3) error = t1.t('auth:pseudo_length_min')
     else if (/[^a-zA-Z0-9]/.test(value))
-      error = 'Le pseudo contient des caractère spéciaux'
+      error = t1.t('auth:pseudo_special_chara')
 
     return error
   }
-  const validateMail = (value) => {
+  const validateEmail = (value) => {
     let error
-    if (!value) error = '*Required'
+    if (!value) error = t1.t('auth:required')
     else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value))
-      error = '*Invalid email address'
-
+      error = t1.t('auth:email_invalid')
     return error
   }
   const validatePassword = (value) => {
     let error = ''
-    if (!value) error = '*Required'
-    else if (value.length < 8) error = '*Password must be 8 characters long.'
-    else if (!/(?=.*[0-9])/.test(value))
-      error = '*Invalid password. Must contain one number.'
+    if (!value) error = t1.t('auth:required')
+    else if (value.length < 8) error = t1.t('auth:password_length_max')
+    else if (!/(?=.*[0-9])/.test(value)) error = t1.t('auth:password_number')
 
     return error
   }
   const validateConfirmPassword = (pass, value) => {
     let error = ''
-    if (!value) error = '*Required'
-    else if (pass && value && pass !== value) error = 'Password not matched'
+    if (!value) error = t1.t('auth:required')
+    else if (pass && value && pass !== value)
+      error = t1.t('auth:password_no_match')
 
     return error
   }
@@ -91,15 +117,13 @@ export default function Index() {
           <Formik
             initialValues={{
               pseudo: '',
-              mail: '',
+              email: '',
               password: '',
               confirmPassword: '',
             }}
             onSubmit={(values, actions) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2))
-                actions.setSubmitting(false)
-              }, 1000)
+              signUp(values)
+              actions.setSubmitting(false)
             }}
           >
             {({ values, isSubmitting }) => (
@@ -125,13 +149,16 @@ export default function Index() {
                         type="text"
                       />
                     </AppField>
-                    <AppField name="mail" validate={validateMail}>
+                    <AppField
+                      name="email"
+                      validate={validateEmail}
+                      marginLeft={['0', '0', '15px', '15px']}
+                    >
                       <AppInput
-                        id="mail"
+                        id="email"
                         placeholder={t2.t('auth:mail')}
-                        autoComplete="mail"
+                        autoComplete="email"
                         type="text"
-                        marginLeft={['0', '0', '15px', '15px']}
                       />
                     </AppField>
                   </Box>
@@ -155,12 +182,12 @@ export default function Index() {
                       validate={(value) =>
                         validateConfirmPassword(values.password, value)
                       }
+                      marginLeft={['0', '0', '15px', '15px']}
                     >
                       <AppInputPassword
                         id="confirmPassword"
                         placeholder={t2.t('auth:confirm_password')}
                         autoComplete="new-password"
-                        marginLeft={['0', '0', '15px', '15px']}
                       />
                     </AppField>
                   </Box>

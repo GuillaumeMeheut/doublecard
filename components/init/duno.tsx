@@ -23,7 +23,6 @@ export const DunoModal: FunctionComponent<Props> = ({
 }) => {
   const [setting, setSetting] = useState<DunoSetting>({
     type: 'DUNO',
-    img: '/assets/init/duno.svg',
     room_name: '',
     nb_player: 2,
     round: 2,

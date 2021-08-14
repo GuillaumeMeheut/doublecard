@@ -1,7 +1,6 @@
 import { AppButton, AppInputSearch } from 'components'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import React from 'react'
 import nookies from 'nookies'
 
 export default function Index({ defaultLanguage }) {

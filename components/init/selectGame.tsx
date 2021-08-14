@@ -54,14 +54,14 @@ export const SelectGame: FunctionComponent<Props> = ({
         {Games.map((game) => {
           return (
             <Box
-              key={game._id}
+              key={game.id}
               display="flex"
               justifySelf="center"
               marginBottom={Spaces.component}
               paddingX={Spaces.component}
               borderRadius={ComponentSize.borderRadius}
               border={`3px solid ${
-                selectedGame === game._id ? Color.whiteMain : 'transparent'
+                selectedGame === game.id ? Color.whiteMain : 'transparent'
               }`}
             >
               <AppImage
@@ -70,9 +70,9 @@ export const SelectGame: FunctionComponent<Props> = ({
                 height={ImageSize.gameIcon}
                 cursor="pointer"
                 image={{ objectFit: 'fill' }}
-                onClick={() => setGame(game._id)}
+                onClick={() => setGame(game.id)}
               />
-              {selectedGame === game._id ? null : (
+              {selectedGame === game.id ? null : (
                 <Tooltip
                   hasArrow
                   placement="bottom"

@@ -1,8 +1,7 @@
 import { Box } from '@chakra-ui/react'
-import { AppButtonLink, AppHead, AppText, AppImage } from 'components'
+import { AppButtonLink, AppHead, AppImage } from 'components'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import React from 'react'
 import { Color, ColorHover, Spaces } from 'theme'
 import { getLanguageHeaders } from 'utils'
 
@@ -58,7 +57,6 @@ export default function Index() {
           <AppButtonLink href={'/auth/signup'} marginBottom={Spaces.component}>
             {t2.t('auth:signup')}
           </AppButtonLink>
-          <AppText cursor="pointer">{t2.t('auth:play_as_guest')}</AppText>
         </Box>
       </Box>
     </>

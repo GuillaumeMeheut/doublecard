@@ -20,7 +20,7 @@ export const LobbyCardDuno: FunctionComponent<Props> = ({ t, setting }) => {
       borderRadius={ComponentSize.borderRadius}
     >
       <AppImage
-        src={setting.img}
+        src="/assets/init/duno.svg"
         alt={setting.type}
         width={ImageSize.gameIcon}
         height={ImageSize.gameIcon}

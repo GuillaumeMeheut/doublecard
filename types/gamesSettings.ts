@@ -1,6 +1,5 @@
 export interface DunoSetting {
   type: 'DUNO'
-  img: '/assets/init/duno.svg'
   room_name: string
   nb_player: number
   round: number
@@ -9,6 +8,6 @@ export interface DunoSetting {
 }
 
 export interface DunoSettingLobby extends DunoSetting {
-  _id: string
-  players: Array<any>
+  id: string
+  players: Array<Player>
 }

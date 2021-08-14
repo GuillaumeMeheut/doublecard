@@ -1,0 +1,56 @@
+[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+null
+[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+null
+FirebaseAppError: Failed to parse private key: Error: Invalid PEM formatted message.
+    at FirebaseAppError.FirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:44:28)
+    at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:90:28)
+    at new FirebaseAppError (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:125:28)
+    at new ServiceAccount (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:142:19)
+    at new ServiceAccountCredential (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:68:15)
+    at Object.exports.cert (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential.js:34:54)
+    at Object../utils/firebase/adminFirebase.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:286:82)
+    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42)
+    at Object../utils/firebase/index.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:442:72)
+    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42) {
+  errorInfo: {
+    code: 'app/invalid-credential',
+    message: 'Failed to parse private key: Error: Invalid PEM formatted message.'
+  },
+  codePrefix: 'app'
+}
+[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+null
+[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+null
+[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+null
+[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+null
+FirebaseAppError: Failed to parse private key: Error: Invalid PEM formatted message.
+    at FirebaseAppError.FirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:44:28)
+    at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:90:28)
+    at new FirebaseAppError (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:125:28)
+    at new ServiceAccount (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:142:19)
+    at new ServiceAccountCredential (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:68:15)
+    at Object.exports.cert (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential.js:34:54)
+    at Object../utils/firebase/adminFirebase.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:286:82)
+    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42)
+    at Object../utils/firebase/index.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:443:72)
+    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42) {
+  errorInfo: {
+    code: 'app/invalid-credential',
+    message: 'Failed to parse private key: Error: Invalid PEM formatted message.'
+  },
+  codePrefix: 'app'
+}
+[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+null
+^C

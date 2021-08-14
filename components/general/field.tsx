@@ -11,7 +11,10 @@ export const AppField = React.forwardRef((props: any, ref: any) => {
         {({ field, form }) => (
           <FormControl isInvalid={form.errors[name] && form.touched[name]}>
             {cloneElement(children, { ...field })}
-            <FormErrorMessage fontSize={FontSize.paragraph}>
+            <FormErrorMessage
+              fontSize={FontSize.paragraph}
+              maxWidth="fit-content"
+            >
               {form.errors[name]}
             </FormErrorMessage>
           </FormControl>

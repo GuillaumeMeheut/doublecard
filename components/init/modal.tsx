@@ -3,6 +3,8 @@ import { Modal, ModalContent, ModalOverlay } from '@chakra-ui/react'
 import { SelectGame, DunoModal } from 'components'
 import { Color } from 'theme'
 import { TFunction } from 'next-i18next'
+import { createLobby } from 'api'
+import { useAuth } from 'utils'
 
 type Props = {
   isOpen: boolean
@@ -13,6 +15,7 @@ type Props = {
 export const ModalInit: FunctionComponent<Props> = ({ isOpen, onClose, t }) => {
   const [game, setGame] = useState<string>('select')
   const [step, setStep] = useState<string>(game)
+  const { user } = useAuth()
 
   // assigner un composant a un jeu
   const componentGame = {
@@ -30,7 +33,7 @@ export const ModalInit: FunctionComponent<Props> = ({ isOpen, onClose, t }) => {
         t={t}
         onPrevious={(step) => setStep(step)}
         onCreate={(setting) => {
-          console.log(setting)
+          createLobby(setting, user)
           onClose()
         }}
       />

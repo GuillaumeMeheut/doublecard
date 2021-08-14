@@ -40,7 +40,7 @@ export const BodyFriends: FunctionComponent<Props> = ({ friends }) => {
       {friends.map((friend) => {
         return (
           <Box
-            key={friend._id}
+            key={friend.id}
             display="flex"
             justifyContent="space-between"
             alignItems="center"

@@ -1,4 +1,5 @@
-import { Box } from '@chakra-ui/react'
+import { Box, useToast } from '@chakra-ui/react'
+import { Form, Formik } from 'formik'
 import {
   AppButton,
   AppButtonLink,
@@ -6,17 +7,53 @@ import {
   AppImage,
   AppInput,
   AppInputPassword,
-  AppText,
+  AppField,
 } from 'components'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import React from 'react'
 import { ButtonSize, Color, ColorHover, FontSize, Spaces } from 'theme'
-import { getLanguageHeaders } from 'utils'
+import { getLanguageHeaders, useAuth } from 'utils'
+import { useRouter } from 'next/router'
 
 export default function Index() {
   const t1 = useTranslation('common')
   const t2 = useTranslation('auth')
+
+  const { signin } = useAuth()
+  const toast = useToast()
+  const router = useRouter()
+
+  const signIn = ({ email, password }, actions) => {
+    signin(email, password)
+      .then(() => {
+        router.push('/')
+      })
+      .catch((error) => {
+        actions.setSubmitting(false)
+        toast({
+          title: 'An error occurred.',
+          description: error.message,
+          status: 'error',
+          duration: 7000,
+          isClosable: true,
+        })
+      })
+  }
+
+  const validateEmail = (value) => {
+    let error
+    if (!value) error = t1.t('auth:required')
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value))
+      error = t1.t('auth:email_invalid')
+    return error
+  }
+
+  const validatePassword = (value) => {
+    let error = ''
+    if (!value) error = t1.t('auth:required')
+
+    return error
+  }
 
   return (
     <>
@@ -52,33 +89,64 @@ export default function Index() {
             marginBottom={['30px', '40px', '50px', '50px']}
           />
 
-          <AppInput
-            placeholder={t2.t('auth:mail')}
-            type="text"
-            marginBottom={Spaces.component}
-          />
-          <AppInputPassword
-            placeholder={t2.t('auth:password')}
-            boxprops={{
-              marginBottom: ['20px', '25px', '30px', '30px'],
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
             }}
-          />
+            onSubmit={(values, actions) => {
+              signIn(values, actions)
+            }}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <Box
+                  display="flex"
+                  flexDirection={'column'}
+                  justifyContent="center"
+                  alignItems="center"
+                  marginBottom={['20px', '30px', '40px', '40px']}
+                >
+                  <AppField name="email" validate={validateEmail}>
+                    <AppInput
+                      id="email"
+                      placeholder={t2.t('auth:mail')}
+                      autoComplete="email"
+                      type="text"
+                    />
+                  </AppField>
 
-          <AppButton
-            fontSize={FontSize.title}
-            width={ButtonSize.largeWidth}
-            height={ButtonSize.largeHeight}
-            backgroundColor={Color.blueMain}
-            _hover={{
-              backgroundColor: ColorHover.blueMain,
-            }}
-            marginBottom={Spaces.component}
-            text={t2.t('auth:signin')}
-          />
-          <AppButtonLink href="/auth/signup" marginBottom={Spaces.component}>
-            {t2.t('auth:signup')}
-          </AppButtonLink>
-          <AppText>{t2.t('auth:play_as_guest')}</AppText>
+                  <AppField name="password" validate={validatePassword}>
+                    <AppInputPassword
+                      id="password"
+                      placeholder={t2.t('auth:password')}
+                      autoComplete="new-password"
+                    />
+                  </AppField>
+                </Box>
+                <AppButton
+                  type="submit"
+                  isLoading={isSubmitting}
+                  justifySelf="center"
+                  fontSize={FontSize.title}
+                  width={ButtonSize.largeWidth}
+                  height={ButtonSize.largeHeight}
+                  backgroundColor={Color.blueMain}
+                  _hover={{
+                    backgroundColor: ColorHover.blueMain,
+                  }}
+                  marginBottom={Spaces.component}
+                  text={t2.t('auth:signin')}
+                />
+                <AppButtonLink
+                  href="/auth/signup"
+                  marginBottom={Spaces.component}
+                >
+                  {t2.t('auth:signup')}
+                </AppButtonLink>
+              </Form>
+            )}
+          </Formik>
         </Box>
       </Box>
     </>
