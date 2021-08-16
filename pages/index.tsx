@@ -12,13 +12,13 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useState } from 'react'
 import { Color, Spaces } from 'theme'
 import { getLanguageHeaders, Rdb } from 'utils'
-import { useList } from 'react-firebase-hooks/database'
+import { useListVals } from 'react-firebase-hooks/database'
 
 export default function Index() {
   const t1 = useTranslation('common')
   const t2 = useTranslation('init')
 
-  const [lobbies, loadinglobbies, errorlobbies] = useList(Rdb.ref('lobby'))
+  const [lobbies, loadinglobbies, errorlobbies] = useListVals(Rdb.ref('lobby'))
 
   const [openModal, setOpenModal] = useState<boolean>(false)
 
@@ -58,7 +58,7 @@ export default function Index() {
             <AppInputSearch placeholder={t2.t('init:search')} />
           </Box>
           {lobbies.map((lobby) => {
-            return loadinglobbies ? 'Loading...' : returnCard(lobby.val())
+            return loadinglobbies ? 'Loading...' : returnCard(lobby)
           })}
         </Box>
       </AppInterface>

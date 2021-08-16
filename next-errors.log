@@ -4,53 +4,96 @@ null
 [31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
 [31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
 null
-FirebaseAppError: Failed to parse private key: Error: Invalid PEM formatted message.
-    at FirebaseAppError.FirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:44:28)
-    at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:90:28)
-    at new FirebaseAppError (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:125:28)
-    at new ServiceAccount (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:142:19)
-    at new ServiceAccountCredential (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:68:15)
-    at Object.exports.cert (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential.js:34:54)
-    at Object../utils/firebase/adminFirebase.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:286:82)
-    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42)
-    at Object../utils/firebase/index.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:442:72)
-    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42) {
-  errorInfo: {
-    code: 'app/invalid-credential',
-    message: 'Failed to parse private key: Error: Invalid PEM formatted message.'
-  },
-  codePrefix: 'app'
+Error: Cannot find module 'C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\build-manifest.json'
+Require stack:
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\load-components.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\api-utils.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\server\next.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\server\lib\start-server.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\cli\next-dev.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\bin\next
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.mod._resolveFilename (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\build\webpack\require-hook.js:4:1855)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at loadComponents (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\load-components.js:1:1557)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async DevServer.findPageComponents (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:77:257)
+    at async DevServer.renderErrorToHTML (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:139:266) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\load-components.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\api-utils.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\next-server.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\server\\next.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\server\\lib\\start-server.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\cli\\next-dev.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\bin\\next'
+  ]
+}
+Error: Cannot find module 'C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\build-manifest.json'
+Require stack:
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\load-components.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\api-utils.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\server\next.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\server\lib\start-server.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\cli\next-dev.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\bin\next
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.mod._resolveFilename (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\build\webpack\require-hook.js:4:1855)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at loadComponents (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\load-components.js:1:1557)
+    at async DevServer.findPageComponents (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:77:257)
+    at async DevServer.renderErrorToHTML (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:139:266)
+    at async DevServer.render (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:75:160)
+    at async Object.fn (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:58:672) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\load-components.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\api-utils.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\next-server.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\server\\next.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\server\\lib\\start-server.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\cli\\next-dev.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\bin\\next'
+  ]
+}
+Error: Cannot find module 'C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\build-manifest.json'
+Require stack:
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\load-components.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\api-utils.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\server\next.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\server\lib\start-server.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\cli\next-dev.js
+- C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\bin\next
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.mod._resolveFilename (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\build\webpack\require-hook.js:4:1855)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at loadComponents (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\load-components.js:1:1557)
+    at async DevServer.findPageComponents (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:77:257)
+    at async DevServer.renderErrorToHTML (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:139:266)
+    at async DevServer.render (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:75:160)
+    at async Object.fn (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\next\dist\next-server\server\next-server.js:58:672) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\load-components.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\api-utils.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\next-server\\server\\next-server.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\server\\next.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\server\\lib\\start-server.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\cli\\next-dev.js',
+    'C:\\Users\\xlgkt\\Documents\\Sites web\\DoubleCard\\node_modules\\next\\dist\\bin\\next'
+  ]
 }
 [31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
 [31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
 null
-[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
-[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
-null
-[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
-[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
-null
-[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
-[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
-null
-FirebaseAppError: Failed to parse private key: Error: Invalid PEM formatted message.
-    at FirebaseAppError.FirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:44:28)
-    at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:90:28)
-    at new FirebaseAppError (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\utils\error.js:125:28)
-    at new ServiceAccount (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:142:19)
-    at new ServiceAccountCredential (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential-internal.js:68:15)
-    at Object.exports.cert (C:\Users\xlgkt\Documents\Sites web\DoubleCard\node_modules\firebase-admin\lib\credential\credential.js:34:54)
-    at Object../utils/firebase/adminFirebase.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:286:82)
-    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42)
-    at Object../utils/firebase/index.ts (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\pages\_app.js:443:72)
-    at __webpack_require__ (C:\Users\xlgkt\Documents\Sites web\DoubleCard\.next\server\webpack-runtime.js:25:42) {
-  errorInfo: {
-    code: 'app/invalid-credential',
-    message: 'Failed to parse private key: Error: Invalid PEM formatted message.'
-  },
-  codePrefix: 'app'
-}
-[31merror[39m - ./node_modules/@google-cloud/storage/build/src/bucket.js:22:0
-[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
-null
-^C

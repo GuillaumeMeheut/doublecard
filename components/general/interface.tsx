@@ -16,7 +16,7 @@ export const AppInterface: FunctionComponent<Props> = ({ children, t }) => {
   }
 
   useEffect(() => {
-    //a faire des trucs socket ici
+    //a faire des trucs rtdb ici
   }, [])
 
   return (

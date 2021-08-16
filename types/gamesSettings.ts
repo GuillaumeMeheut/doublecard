@@ -9,5 +9,5 @@ export interface DunoSetting {
 
 export interface DunoSettingLobby extends DunoSetting {
   id: string
-  players: Array<Player>
+  players: Array<any>
 }

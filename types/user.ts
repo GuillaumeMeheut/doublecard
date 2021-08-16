@@ -1,6 +1,5 @@
 export interface User {
   username: string
-  email: string
-  photoURL: string
+  profilPic: string
   coin: number
 }
