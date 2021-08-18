@@ -1,5 +1,8 @@
 export interface User {
-  username: string
-  profilPic: string
+  email: string
+  profilImg: string
+  pseudo: string
   coin: number
+  playCoin: number
+  friends: Array<any>
 }

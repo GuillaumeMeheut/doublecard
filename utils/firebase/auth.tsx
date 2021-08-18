@@ -1,15 +1,14 @@
 import { useState, useEffect, useContext, createContext } from 'react'
 import queryString from 'query-string'
 import { auth, firestore } from 'utils'
-import { useRouter } from 'next/router'
 
 const authContext = createContext({
-  user: null,
-  signin: null,
-  signup: null,
-  signout: null,
-  sendPasswordResetEmail: null,
-  confirmPasswordReset: null,
+  user: undefined,
+  signin: undefined,
+  signup: undefined,
+  signout: undefined,
+  sendPasswordResetEmail: undefined,
+  confirmPasswordReset: undefined,
 })
 
 export function ProvideAuth({ children }) {
@@ -22,7 +21,6 @@ export const useAuth = () => {
 }
 
 function useProvideAuth() {
-  const router = useRouter()
   const [user, setUser] = useState(null)
 
   const signin = (email, password) => {
@@ -36,12 +34,19 @@ function useProvideAuth() {
     return auth
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
-        // firestore.collection('users').doc(user.uid).set({
-        //   email: user.email,
-        //   profilPic: null,
-        //   pseudo: pseudo,
-        // })
-        response.user.displayName = pseudo
+        console.log(response.user)
+        firestore.collection('users').doc(response.user.uid).set({
+          id: response.user.uid,
+          email: email,
+          profilImg: null,
+          pseudo: pseudo,
+          coin: 0,
+          playCoin: 50,
+        })
+        response.user.updateProfile({
+          displayName: pseudo,
+        })
+        console.log(response.user)
         setUser(response.user)
         return response.user
       })

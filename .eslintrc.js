@@ -45,6 +45,8 @@ module.exports = {
         // Why would you want unused vars?
         '@typescript-eslint/no-unused-vars': ['warn'],
 
+        'react/no-unescaped-entities': 'off',
+
         // I suggest this setting for requiring return types on functions only where useful
         // '@typescript-eslint/explicit-function-return-type': [
         //   'warn',

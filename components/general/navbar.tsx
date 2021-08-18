@@ -4,13 +4,23 @@ import { ButtonSize, Color, ColorHover, FontSize, Spaces } from 'theme'
 import { AppButtonLink, AppImage, AppImageLink, AppText } from 'components'
 import { TFunction } from 'next-i18next'
 import { User } from 'types'
+import { getUser } from 'api/user'
 
 type Props = {
   t: TFunction
   user: User
+  loading: any
 }
 
-export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
+export const NavBar: FunctionComponent<Props> = ({ t, user, loading }) => {
+  // console.log(user)
+
+  const getProfilImg = () => {
+    // if(!localStorage)
+
+    getUser()
+  }
+
   return (
     <Box
       display="flex"
@@ -71,7 +81,7 @@ export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
             fontWeight="700"
             marginRight={Spaces.componentSmall}
           >
-            {user.coin}
+            {loading ? '?' : user.playCoin}
           </AppText>
           <AppImage
             src="/assets/common/coin.svg"
@@ -81,7 +91,13 @@ export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
         </Box>
         <AppImageLink
           href="/profil"
-          src={user.profilPic}
+          src={
+            loading
+              ? null
+              : user.profilImg
+              ? user.profilImg
+              : '/assets/social/defaultProfilImg.svg'
+          }
           width={['30px', '40px', '50px', '50px']}
           height={['30px', '40px', '50px', '50px']}
           rounded="full"
