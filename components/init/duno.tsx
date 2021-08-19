@@ -5,6 +5,7 @@ import {
   AppButton,
   NumberSelector,
   PrivacySelector,
+  CoinSelector,
 } from 'components'
 import { TFunction } from 'next-i18next'
 import { DunoSetting } from 'types'
@@ -26,6 +27,7 @@ export const DunoModal: FunctionComponent<Props> = ({
     room_name: '',
     nb_player: 2,
     round: 2,
+    coin: 0,
     public: true,
     pin: '',
   })
@@ -61,9 +63,13 @@ export const DunoModal: FunctionComponent<Props> = ({
           end={5}
           selectedNumber={setting.round}
           onClick={(value) => setSetting({ ...setting, round: value })}
-          boxProps={{ marginBottom: ['20px', '30px', '40px', '40px'] }}
+          boxProps={{ marginBottom: ['15px', '25px', '30px', '30px'] }}
         />
-
+        <CoinSelector
+          t={t}
+          coin={setting.coin}
+          onChange={(value) => setSetting({ ...setting, coin: value })}
+        />
         <PrivacySelector
           t={t}
           isPublic={setting.public}

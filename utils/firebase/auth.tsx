@@ -40,8 +40,7 @@ function useProvideAuth() {
           email: email,
           profilImg: null,
           pseudo: pseudo,
-          coin: 0,
-          playCoin: 50,
+          coin: 50,
         })
         response.user.updateProfile({
           displayName: pseudo,

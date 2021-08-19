@@ -12,6 +12,7 @@
   "room_name": "Name of the room",
   "nb_player": "Max number of players",
   "nb_round": "Number of rounds",
+  "entry_cost": "Cost of entry",
   "public": "Public",
   "private": "Private",
   "create": "Create",

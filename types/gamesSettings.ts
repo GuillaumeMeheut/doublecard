@@ -3,6 +3,7 @@ export interface DunoSetting {
   room_name: string
   nb_player: number
   round: number
+  coin: number | string
   public: boolean
   pin?: string
 }

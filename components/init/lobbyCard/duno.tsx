@@ -4,6 +4,7 @@ import { TFunction } from 'next-i18next'
 import { ButtonSize, Color, ComponentSize, ImageSize, Spaces } from 'theme'
 import { DunoSettingLobby } from 'types'
 import { AppButton, AppImage, NbPlayer } from 'components'
+import { useLobby } from 'hooks'
 
 type Props = {
   t: TFunction
@@ -11,6 +12,8 @@ type Props = {
 }
 
 export const LobbyCardDuno: FunctionComponent<Props> = ({ t, setting }) => {
+  const { joinRoom } = useLobby()
+
   return (
     <Box
       width="100%"
@@ -37,6 +40,16 @@ export const LobbyCardDuno: FunctionComponent<Props> = ({ t, setting }) => {
           width={ButtonSize.mediumWidth}
           height={ButtonSize.mediumHeight}
           marginTop="-25px"
+          onClick={() =>
+            joinRoom(
+              setting.public,
+              setting.players,
+              setting.nb_player,
+              setting.coin,
+              setting.type,
+              setting,
+            )
+          }
         />
       </Box>
     </Box>

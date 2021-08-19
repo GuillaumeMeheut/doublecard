@@ -14,11 +14,11 @@ export default function Index() {
       <AppHead
         icon="/assets/common/logo.svg"
         url={`${process.env.NEXT_PUBLIC_BASE_URL}`}
-        name={t2.t('init:page_title')}
-        description={t2.t('init:page_description')}
+        name={t2.t('rules:page_title')}
+        description={t2.t('rules:page_description')}
         themeColor={Color.blueMain}
         author={t1.t('common:head_initor')}
-        keywords={t2.t('init:page_keywords')}
+        keywords={t2.t('rules:page_keywords')}
         language={t1.t('common:language')}
       />
       <AppInterface t={t1.t}>

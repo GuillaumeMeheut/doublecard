@@ -15,8 +15,8 @@ export const AppInterface: FunctionComponent<Props> = ({ children, t }) => {
   const { user } = useAuth()
 
   const [userData, loading] = useDocumentDataOnce<User>(
-    firestore.doc(`/users/${user.id}`),
-    // firestore.doc(`/users/hzS8K0hou6hpSPhuy4dNCSDCBJ63`),
+    // firestore.doc(`/users/${user.id}`),
+    firestore.doc(`/users/hzS8K0hou6hpSPhuy4dNCSDCBJ63`),
   )
 
   useEffect(() => {

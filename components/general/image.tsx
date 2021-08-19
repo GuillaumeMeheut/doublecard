@@ -1,7 +1,7 @@
 import { Box, Img } from '@chakra-ui/react'
 
 export const AppImage = (props) => {
-  const { src, alt, ...rest } = props
+  const { src, alt, profil, ...rest } = props
   return (
     <Box
       position="relative"
@@ -11,7 +11,17 @@ export const AppImage = (props) => {
       overflow="hidden"
       {...rest}
     >
-      <Img width="100%" height="100%" src={src} alt={alt} {...props.image} />
+      <Img
+        width="100%"
+        height="100%"
+        src={
+          (profil && src === undefined) || src === null
+            ? '/assets/social/defaultProfilImg.svg'
+            : src
+        }
+        alt={alt}
+        {...props.image}
+      />
     </Box>
   )
 }

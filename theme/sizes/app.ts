@@ -18,6 +18,8 @@ export const ButtonSize = {
 }
 
 export const InputSize = {
+  smallHeight: ['30px', '35px', '40px', '40px'],
+  smallWidth: ['100px', '115px', '120px', '120px'],
   mediumHeight: ['40px', '50px', '50px', '50px'],
   mediumWidth: ['200px', '250px', '300px', '300px'],
   largeHeight: ['45px', '50px', '70px', '70px'],

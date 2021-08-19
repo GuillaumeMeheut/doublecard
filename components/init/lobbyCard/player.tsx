@@ -23,6 +23,7 @@ export const NbPlayer: FunctionComponent<Props> = ({
                 key={index}
                 src={player.profilImg}
                 alt={player.pseudo}
+                profil={true}
                 width={['15px', '15px', '20px', '20px']}
                 height={['15px', '15px', '20px', '20px']}
                 rounded="full"

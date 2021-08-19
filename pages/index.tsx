@@ -4,6 +4,7 @@ import {
   AppHead,
   AppInputSearch,
   AppInterface,
+  AppText,
   LobbyCardDuno,
   ModalInit,
 } from 'components'
@@ -18,7 +19,9 @@ export default function Index() {
   const t1 = useTranslation('common')
   const t2 = useTranslation('init')
 
-  const [lobbies, loadinglobbies, errorlobbies] = useListVals(Rdb.ref('lobby'))
+  const [lobbies, loadinglobbies, errorlobbies] = useListVals<any>(
+    Rdb.ref('lobby'),
+  )
 
   const [openModal, setOpenModal] = useState<boolean>(false)
 
@@ -57,8 +60,12 @@ export default function Index() {
             />
             <AppInputSearch placeholder={t2.t('init:search')} />
           </Box>
-          {lobbies.map((lobby) => {
-            return loadinglobbies ? 'Loading...' : returnCard(lobby)
+          {lobbies.map((lobby, index) => {
+            return loadinglobbies ? (
+              <AppText key={lobby.id}>Loading...</AppText>
+            ) : (
+              returnCard(lobby)
+            )
           })}
         </Box>
       </AppInterface>

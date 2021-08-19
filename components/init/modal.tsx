@@ -1,10 +1,11 @@
 import React, { FunctionComponent, useState } from 'react'
-import { Modal, ModalContent, ModalOverlay } from '@chakra-ui/react'
+import { Modal, ModalContent, ModalOverlay, useToast } from '@chakra-ui/react'
 import { SelectGame, DunoModal } from 'components'
 import { Color } from 'theme'
 import { TFunction } from 'next-i18next'
 import { createLobby } from 'api'
 import { useAuth } from 'utils'
+import { useRouter } from 'next/router'
 
 type Props = {
   isOpen: boolean
@@ -16,6 +17,8 @@ export const ModalInit: FunctionComponent<Props> = ({ isOpen, onClose, t }) => {
   const [game, setGame] = useState<string>('select')
   const [step, setStep] = useState<string>(game)
   const { user } = useAuth()
+  const router = useRouter()
+  const toast = useToast()
 
   // assigner un composant a un jeu
   const componentGame = {
@@ -34,7 +37,19 @@ export const ModalInit: FunctionComponent<Props> = ({ isOpen, onClose, t }) => {
         onPrevious={(step) => setStep(step)}
         onCreate={(setting) => {
           createLobby(setting, user)
-          onClose()
+            .then((res) => {
+              router.push(`/lobby/${setting.type.toLowerCase()}/${res.data}`)
+            })
+            .catch((error) => {
+              console.log(error.message)
+              toast({
+                title: 'An error occurred.',
+                description: error.message,
+                status: 'error',
+                duration: 7000,
+                isClosable: true,
+              })
+            })
         }}
       />
     ),

@@ -4,4 +4,8 @@ const createLobby = (setting, user) => {
   return axios.post('/api/lobby/create', { setting, user })
 }
 
-export { createLobby }
+const joinRoomApi = (lobby, user) => {
+  return axios.post('/api/lobby/join', { lobby, user })
+}
+
+export { createLobby, joinRoomApi }
