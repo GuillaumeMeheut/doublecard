@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react'
-import { ModalBody, ModalFooter } from '@chakra-ui/react'
+import { ModalBody, ModalFooter, useToast } from '@chakra-ui/react'
 import {
   AppInput,
   AppButton,
@@ -10,18 +10,16 @@ import {
 import { TFunction } from 'next-i18next'
 import { DunoSetting } from 'types'
 import { InputSize } from 'theme'
+import { createLobby } from 'api'
+import { useRouter } from 'next/router'
+import { useAuth } from 'utils'
 
 type Props = {
   t: TFunction
-  onCreate: (setting: DunoSetting) => void
   onPrevious: (step: string) => void
 }
 
-export const DunoModal: FunctionComponent<Props> = ({
-  t,
-  onCreate,
-  onPrevious,
-}) => {
+export const DunoModal: FunctionComponent<Props> = ({ t, onPrevious }) => {
   const [setting, setSetting] = useState<DunoSetting>({
     type: 'DUNO',
     room_name: '',
@@ -31,6 +29,33 @@ export const DunoModal: FunctionComponent<Props> = ({
     public: true,
     pin: '',
   })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const { user } = useAuth()
+  const router = useRouter()
+  const toast = useToast()
+
+  const create = (setting) => {
+    setIsSubmitting(true)
+    createLobby(setting, user)
+      .then((res) => {
+        router.push(`/lobby/${setting.type.toLowerCase()}/${res.data}`)
+        setIsSubmitting(false)
+      })
+      .catch((error) => {
+        setIsSubmitting(false)
+        console.log(error.message)
+        toast({
+          title: 'An error occurred.',
+          description: error.message,
+          status: 'error',
+          duration: 7000,
+          isClosable: true,
+        })
+      })
+  }
+
   return (
     <>
       <ModalBody
@@ -89,7 +114,11 @@ export const DunoModal: FunctionComponent<Props> = ({
           fontWeight="400"
           onClick={() => onPrevious('select')}
         />
-        <AppButton text={t('init:create')} onClick={() => onCreate(setting)} />
+        <AppButton
+          text={t('init:create')}
+          isLoading={isSubmitting}
+          onClick={() => create(setting)}
+        />
       </ModalFooter>
     </>
   )

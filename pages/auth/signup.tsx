@@ -26,13 +26,6 @@ export default function Index() {
   const signUp = ({ email, password, pseudo }) => {
     signup(email, password, pseudo)
       .then(() => {
-        toast({
-          title: 'Success!',
-          description: 'Your account has been created.',
-          status: 'success',
-          duration: 3000,
-          isClosable: true,
-        })
         router.push('/')
       })
       .catch((error) => {

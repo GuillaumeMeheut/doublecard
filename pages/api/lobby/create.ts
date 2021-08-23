@@ -12,7 +12,7 @@ export default async function createLobby(
 
     if (lobby.coin < userCoin.data().coin) {
       lobby.players = [
-        { userID: user.id, profilImg: user.photo, pseudo: user.pseudo },
+        { userID: user.id, profilImg: user.picture, pseudo: user.pseudo },
       ]
       const autoId = Rdb.ref('lobby').push().key
       lobby.id = autoId

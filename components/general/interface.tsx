@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent, useEffect, useState } from 'react'
 import { Box } from '@chakra-ui/react'
 import { Color } from '../../theme'
 import { Friends, NavBar } from 'components'
@@ -14,14 +14,9 @@ type Props = {
 export const AppInterface: FunctionComponent<Props> = ({ children, t }) => {
   const { user } = useAuth()
 
-  const [userData, loading] = useDocumentDataOnce<User>(
-    // firestore.doc(`/users/${user.id}`),
-    firestore.doc(`/users/hzS8K0hou6hpSPhuy4dNCSDCBJ63`),
-  )
-
   useEffect(() => {
-    //a faire des trucs rtdb ici
-  }, [])
+    console.log('proc')
+  })
 
   return (
     <Box
@@ -32,7 +27,7 @@ export const AppInterface: FunctionComponent<Props> = ({ children, t }) => {
       justifyContent="flex-start"
       alignItems="center"
     >
-      <NavBar t={t} user={userData} loading={loading} />
+      <NavBar t={t} />
       {children}
       <Friends />
     </Box>

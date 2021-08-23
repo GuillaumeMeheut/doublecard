@@ -4,19 +4,20 @@ import { ButtonSize, Color, ColorHover, FontSize, Spaces } from 'theme'
 import { AppButtonLink, AppImage, AppImageLink, AppText } from 'components'
 import { TFunction } from 'next-i18next'
 import { User } from 'types'
+import { useDocumentDataOnce } from 'react-firebase-hooks/firestore'
+import { firestore } from 'utils'
 
 type Props = {
   t: TFunction
-  user: User
-  loading: any
 }
 
-export const NavBar: FunctionComponent<Props> = ({ t, user, loading }) => {
-  // console.log(user)
+export const NavBar: FunctionComponent<Props> = ({ t }) => {
+  const [user, loading] = useDocumentDataOnce<User>(
+    // firestore.doc(`/users/${user.id}`),
+    firestore.doc(`/users/hzS8K0hou6hpSPhuy4dNCSDCBJ63`),
+  )
 
-  const getProfilImg = () => {
-    // if(!localStorage)
-  }
+  const getCoin = () => {}
 
   return (
     <Box

@@ -88,7 +88,7 @@ function useProvideAuth() {
       id: user && user.uid,
       pseudo: user && user.displayName,
       email: user && user.email,
-      photo: user && user.photoURL,
+      picture: user && user.photoURL,
     },
     signin,
     signup,
