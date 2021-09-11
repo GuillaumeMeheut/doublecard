@@ -17,7 +17,7 @@ export const NavBar: FunctionComponent<Props> = ({ t }) => {
     firestore.doc(`/users/hzS8K0hou6hpSPhuy4dNCSDCBJ63`),
   )
 
-  const getCoin = () => {}
+  // const getCoin = () => {}
 
   return (
     <Box

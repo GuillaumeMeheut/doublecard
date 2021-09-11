@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { Rdb } from 'utils'
+import { getDunoDeck, Rdb, shuffleDeck } from 'utils'
 
-export default async function joinLobby(
+export default async function joinDunoLobby(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
@@ -10,11 +10,22 @@ export default async function joinLobby(
 
     if (lobby.players.length === lobby.nb_player) {
       lobby.status = 'inGame'
-      Rdb.ref(`lobby/${lobby.id}`).update(lobby)
+      Rdb.ref(`lobby/${lobby.id}`).set(lobby)
+
+      const game = {
+        players: [
+          {
+            id: 'gbfjkdbk',
+            pseudo: 'LgkTak',
+            hand: [],
+          },
+        ],
+        deck: shuffleDeck(getDunoDeck()),
+      }
 
       Rdb.ref('game')
         .child(lobby.id)
-        .set({ lobby })
+        .set({ lobby, game })
         .then(() => {
           res.json('Starting game...')
         })
