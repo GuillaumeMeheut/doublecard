@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { Rdb, test } from 'utils'
+import { Rdb } from 'utils'
 
 export default async function joinLobby(
   req: NextApiRequest,
@@ -8,7 +8,7 @@ export default async function joinLobby(
   try {
     const { lobby, user } = req.body
 
-    lobby.players.push({ pseudo: user.pseudo, userID: user.id })
+    lobby.players.push({ pseudo: user.pseudo, id: user.id })
 
     Rdb.ref(`lobby/${lobby.id}`).update(lobby)
 

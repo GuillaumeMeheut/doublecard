@@ -1,12 +1,33 @@
 import { useToast } from '@chakra-ui/react'
-import { joinRoomApi } from 'api'
-import router from 'next/router'
+import { createLobby, joinRoomApi, leaveRoomApi, startGameApi } from 'api'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { useAuth } from 'utils'
 
 export function useLobby() {
+  const [loading, setLoading] = useState(false)
   const { user } = useAuth()
   const toast = useToast()
+  const router = useRouter()
 
+  const createRoom = (setting) => {
+    setLoading(true)
+    createLobby(setting, user)
+      .then((res) => {
+        router.push(`/lobby/${setting.type.toLowerCase()}/${res.data}`)
+        setLoading(false)
+      })
+      .catch((error) => {
+        setLoading(false)
+        toast({
+          title: 'An error occurred.',
+          description: error.message,
+          status: 'error',
+          duration: 7000,
+          isClosable: true,
+        })
+      })
+  }
   const joinRoom = (isPublic, players, nb_playerMax, coin, type, lobby) => {
     if (
       isPublic === true
@@ -36,5 +57,33 @@ export function useLobby() {
     }
   }
 
-  return { joinRoom }
+  const leaveRoom = (lobby) => {
+    leaveRoomApi(lobby, user)
+      .then(() => router.push(`/`))
+      .catch((error) => {
+        toast({
+          title: 'An error occurred.',
+          description: error.message,
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+        })
+      })
+  }
+
+  const startGame = (lobby) => {
+    startGameApi(lobby)
+      .then(() => router.push(`/game/${lobby.type.toLowerCase()}/${lobby.id}`))
+      .catch((error) => {
+        toast({
+          title: 'An error occurred.',
+          description: error.message,
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+        })
+      })
+  }
+
+  return { createRoom, joinRoom, leaveRoom, startGame, loading }
 }

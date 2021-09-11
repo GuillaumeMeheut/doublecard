@@ -3,5 +3,6 @@ export interface User {
   profilImg: string
   pseudo: string
   coin: number
+  skin: string
   friends: Array<any>
 }

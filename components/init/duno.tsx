@@ -10,9 +10,7 @@ import {
 import { TFunction } from 'next-i18next'
 import { DunoSetting } from 'types'
 import { InputSize } from 'theme'
-import { createLobby } from 'api'
-import { useRouter } from 'next/router'
-import { useAuth } from 'utils'
+import { useLobby } from 'hooks'
 
 type Props = {
   t: TFunction
@@ -22,6 +20,7 @@ type Props = {
 export const DunoModal: FunctionComponent<Props> = ({ t, onPrevious }) => {
   const [setting, setSetting] = useState<DunoSetting>({
     type: 'DUNO',
+    status: 'inLobby',
     room_name: '',
     nb_player: 2,
     round: 2,
@@ -30,31 +29,7 @@ export const DunoModal: FunctionComponent<Props> = ({ t, onPrevious }) => {
     pin: '',
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const { user } = useAuth()
-  const router = useRouter()
-  const toast = useToast()
-
-  const create = (setting) => {
-    setIsSubmitting(true)
-    createLobby(setting, user)
-      .then((res) => {
-        router.push(`/lobby/${setting.type.toLowerCase()}/${res.data}`)
-        setIsSubmitting(false)
-      })
-      .catch((error) => {
-        setIsSubmitting(false)
-        console.log(error.message)
-        toast({
-          title: 'An error occurred.',
-          description: error.message,
-          status: 'error',
-          duration: 7000,
-          isClosable: true,
-        })
-      })
-  }
+  const { createRoom, loading } = useLobby()
 
   return (
     <>
@@ -116,8 +91,8 @@ export const DunoModal: FunctionComponent<Props> = ({ t, onPrevious }) => {
         />
         <AppButton
           text={t('init:create')}
-          isLoading={isSubmitting}
-          onClick={() => create(setting)}
+          isLoading={loading}
+          onClick={() => createRoom(setting)}
         />
       </ModalFooter>
     </>

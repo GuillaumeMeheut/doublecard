@@ -8,11 +8,11 @@ export default async function createLobby(
   try {
     const { setting: lobby, user } = req.body
 
-    const userCoin = await firestore.collection('users').doc(user.id).get()
+    const userFirestore = await firestore.collection('users').doc(user.id).get()
 
-    if (lobby.coin < userCoin.data().coin) {
+    if (lobby.coin <= userFirestore.data().coin) {
       lobby.players = [
-        { userID: user.id, profilImg: user.picture, pseudo: user.pseudo },
+        { id: user.id, profilImg: user.picture, pseudo: user.pseudo },
       ]
       const autoId = Rdb.ref('lobby').push().key
       lobby.id = autoId
