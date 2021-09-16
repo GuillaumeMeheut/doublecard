@@ -1,5 +1,6 @@
+import { getActiveElement } from 'formik'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { getDunoDeck, Rdb, shuffleDeck } from 'utils'
+import { dealCards, getDunoDeck, Rdb, shuffleDeck } from 'utils'
 
 export default async function joinDunoLobby(
   req: NextApiRequest,
@@ -12,25 +13,29 @@ export default async function joinDunoLobby(
       lobby.status = 'inGame'
       Rdb.ref(`lobby/${lobby.id}`).set(lobby)
 
-      const game = {
-        players: [
-          {
-            id: 'gbfjkdbk',
-            pseudo: 'LgkTak',
-            hand: [],
-          },
-        ],
+      let game = {
+        players: lobby.players,
         deck: shuffleDeck(getDunoDeck()),
       }
 
-      Rdb.ref('game')
-        .child(lobby.id)
-        .set({ lobby, game })
+      game.players.forEach((player, index) => {
+        const nbCard = 7
+        const { deck, hand } = dealCards(game.deck, nbCard)
+        game.deck = deck
+        game.players[index].hand = hand
+        game.players[index].nbCard = nbCard
+        Rdb.ref(`game/${lobby.id}/players/${player.id}`).set(
+          game.players[index],
+        )
+      })
+
+      Rdb.ref(`game/${lobby.id}/deck`)
+        .set(game.deck)
         .then(() => {
-          res.json('Starting game...')
+          res.redirect(`/game/duno/${lobby.id}`)
         })
     } else {
-      res.status(413).json('error')
+      res.json({ message: 'Unable to start the game' })
     }
   } catch (e) {
     res.json('Error')

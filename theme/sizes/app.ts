@@ -50,3 +50,7 @@ export const ModalSize = {
   mediumWidth: ['320px', '380px', '580px', '600px'],
   smallWidth: ['320px', '480px', '480px', '480px'],
 }
+
+export const CardSize = {
+  height: ['75px', '90px', '100px', '100px'],
+}

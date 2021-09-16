@@ -28,14 +28,14 @@ const valuesDuno = [
 ]
 
 const specialCardDuno = [
-  { value: '+4', color: 'special' },
-  { value: '+4', color: 'special' },
-  { value: '+4', color: 'special' },
-  { value: '+4', color: 'special' },
-  { value: 'joker', color: 'special' },
-  { value: 'joker', color: 'special' },
-  { value: 'joker', color: 'special' },
-  { value: 'joker', color: 'special' },
+  { color: 'special', value: '+4' },
+  { color: 'special', value: '+4' },
+  { color: 'special', value: '+4' },
+  { color: 'special', value: '+4' },
+  { color: 'special', value: 'joker' },
+  { color: 'special', value: 'joker' },
+  { color: 'special', value: 'joker' },
+  { color: 'special', value: 'joker' },
 ]
 
 export function getDunoDeck() {
@@ -63,4 +63,13 @@ export const shuffleDeck = (deck) => {
     deck[location2] = tmp
   }
   return deck
+}
+
+export const dealCards = (deck, nb: number) => {
+  const hand = []
+  for (let i = 0; i < nb; i++) {
+    const card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0]
+    hand.push(card)
+  }
+  return { deck, hand }
 }

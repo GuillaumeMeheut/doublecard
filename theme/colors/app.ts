@@ -7,7 +7,7 @@ export const Color = {
   blueSecond: '#071120',
   red: '#FF4848',
   green: '#18FF59',
-  yellow: '#DFFF18',
+  yellow: '#EBEF2E',
   violet: '#7C0B63',
 }
 

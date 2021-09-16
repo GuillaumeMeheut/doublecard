@@ -1,8 +1,7 @@
-import { AppHead, AppInterface, Deck, MyHand } from 'components'
+import { AppHead, AppInterface, Deck, MyHand, OpponentHand } from 'components'
 import { useDeck, useHand } from 'hooks'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useEffect } from 'react'
 import { useObjectVal } from 'react-firebase-hooks/database'
 import { Color } from 'theme'
 import { getDunoDeck, getLanguageHeaders, Rdb, useAuth } from 'utils'
@@ -19,12 +18,12 @@ export default function Index({ gameID }) {
   const { deck, shuffle } = useDeck(getDunoDeck(), gameID)
   const { hand, draw } = useHand(deck, gameID)
 
-  useEffect(() => {
-    shuffle()
-    draw(8)
-  }, [])
-
   const [game, loadingGame, errorGame] = useObjectVal(Rdb.ref(`game/${gameID}`))
+  const [lobby, loadingLobby, errorLobby] = useObjectVal(
+    Rdb.ref(`lobby/${gameID}`),
+  )
+
+  if (game) console.log(Object.values(game.players)[0]['id'])
 
   return (
     <>
@@ -42,12 +41,20 @@ export default function Index({ gameID }) {
         language={t1.t('common:language')}
       />
       <AppInterface t={t1.t} inGame={true}>
-        {game ? (
+        {game && lobby ? (
           <>
             <Deck gameID={gameID} />
-            {/* game.game.players ? (
-            <MyHand hand={game.game.players[user.id].hand} user={user} />) :
-            <> </> */}
+            <MyHand hand={game.players[user.id].hand} user={user} />
+            {Object.values(game.players)
+              .find((player) => player.id !== user.id)
+              .map((player) => (
+                <OpponentHand
+                  key={player.id}
+                  nbCard={player.nbCard}
+                  skin={'basic'}
+                />
+              ))}
+            )
           </>
         ) : (
           'Loading...'

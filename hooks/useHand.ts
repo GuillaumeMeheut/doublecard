@@ -15,7 +15,19 @@ export function useHand(deck, gameID) {
       hand.push(card)
     }
     setHand(hand)
-    Rdb.ref(`game/${gameID}/game/players/${user.id}/hand`).set(hand)
+    Rdb.ref(`game/${gameID}/game/players/${user.id}`).set({
+      hand,
+      nbCard: hand.length,
+    })
+  }
+
+  const playCard = (index) => {
+    hand.splice(index, 1)
+    setHand(hand)
+    Rdb.ref(`game/${gameID}/game/players/${user.id}`).set({
+      hand,
+      nbCard: hand.length,
+    })
   }
 
   return { hand, draw }

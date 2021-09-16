@@ -1,281 +1,89 @@
-API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/start, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/start, this may result in stalled requests.
-[31merror[39m - ./hooks/useHand.ts:8:18
-[31m[1mSyntax error[22m[39m: Unexpected token, expected ","
+Could not find files for /game/duno/[id] in .next/build-manifest.json
+Could not find files for /game/duno/[id] in .next/build-manifest.json
+Could not find files for /game/duno/[id] in .next/build-manifest.json
+Could not find files for /game/duno/[id] in .next/build-manifest.json
+[31merror[39m - ./pages/game/duno/[id].tsx:28:2
+[31m[1mSyntax error[22m[39m: Unexpected token
 
-[0m [90m  6 | [39m  [36mconst[39m [hand[33m,[39m setHand] [33m=[39m useState([])[0m
-[0m [90m  7 | [39m[0m
-[0m[31m[1m>[22m[39m[90m  8 | [39m  [36mconst[39m { id[33m:[39m user[33m.[39mid } [33m=[39m useAuth()[0m
-[0m [90m    | [39m                  [31m[1m^[22m[39m[0m
-[0m [90m  9 | [39m[0m
-[0m [90m 10 | [39m  [36mconst[39m { drawCard } [33m=[39m useDeck(deck[33m,[39m gameID)[0m
-[0m [90m 11 | [39m[0m
-[31merror[39m - ./components/game/deck.tsx:24:10
-[31m[1mSyntax error[22m[39m: Unterminated JSX contents
-
-[0m [90m 22 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m [90m 23 | [39m      [33m<[39m[33mAppButton[39m text[33m=[39m{[32m'test'[39m}[33m>[39m[0m
-[0m[31m[1m>[22m[39m[90m 24 | [39m    [33m<[39m[33m/[39m[33mBox[39m[33m>[39m[0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 25 | [39m  )[0m
-[0m [90m 26 | [39m}[0m
+[0m [90m 26 | [39m  [36mconst[39m arrayPlayers [33m=[39m [0m
 [0m [90m 27 | [39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:36:38
-[31m[1mSyntax error[22m[39m: Unterminated template
-
-[0m [90m 34 | [39m        [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 35 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 36 | [39m       {gamegame[33m.[39mplayers[33m.[39muser[33m.[39mid[33m.[39mhand[32m`}[39m[0m
-[0m [90m    | [39m                                      [31m[1m^[22m[39m[0m
-[0m [90m 37 | [39m[32m      </AppInterface>[39m[0m
-[0m [90m 38 | [39m[32m    </>[39m[0m
-[0m [90m 39 | [39m[32m  )[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:36:38
-[31m[1mSyntax error[22m[39m: Unterminated template
-
-[0m [90m 34 | [39m        [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 35 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 36 | [39m       {gamegame[33m.[39mplayers[33m.[39muser[33m.[39mid[33m.[39mhand[32m`}[39m[0m
-[0m [90m    | [39m                                      [31m[1m^[22m[39m[0m
-[0m [90m 37 | [39m[32m      </AppInterface>[39m[0m
-[0m [90m 38 | [39m[32m    </>[39m[0m
-[0m [90m 39 | [39m[32m  )[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:39:34
-[31m[1mSyntax error[22m[39m: Unterminated template
-
-[0m [90m 37 | [39m        [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 38 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 39 | [39m       {game[33m.[39mplayers[33m.[39muser[33m.[39mid[33m.[39mhand[32m`}[39m[0m
-[0m [90m    | [39m                                  [31m[1m^[22m[39m[0m
-[0m [90m 40 | [39m[32m      </AppInterface>[39m[0m
-[0m [90m 41 | [39m[32m    </>[39m[0m
-[0m [90m 42 | [39m[32m  )[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:38:34
-[31m[1mSyntax error[22m[39m: Unterminated template
-
-[0m [90m 36 | [39m        [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 37 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 38 | [39m       {game[33m.[39mplayers[33m.[39muser[33m.[39mid[33m.[39mhand[32m`}[39m[0m
-[0m [90m    | [39m                                  [31m[1m^[22m[39m[0m
-[0m [90m 39 | [39m[32m      </AppInterface>[39m[0m
-[0m [90m 40 | [39m[32m    </>[39m[0m
-[0m [90m 41 | [39m[32m  )[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:38:34
-[31m[1mSyntax error[22m[39m: Unterminated template
-
-[0m [90m 36 | [39m        [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 37 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 38 | [39m       {game[33m.[39mplayers[33m.[39muser[33m.[39mid[33m.[39mhand[32m`}[39m[0m
-[0m [90m    | [39m                                  [31m[1m^[22m[39m[0m
-[0m [90m 39 | [39m[32m      </AppInterface>[39m[0m
-[0m [90m 40 | [39m[32m    </>[39m[0m
-[0m [90m 41 | [39m[32m  )[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:38:35
-[31m[1mSyntax error[22m[39m: Unterminated template
-
-[0m [90m 36 | [39m        [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 37 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 38 | [39m       {game[33m.[39mplayers[user[33m.[39mid][33m.[39mhand[32m`}[39m[0m
-[0m [90m    | [39m                                   [31m[1m^[22m[39m[0m
-[0m [90m 39 | [39m[32m      </AppInterface>[39m[0m
-[0m [90m 40 | [39m[32m    </>[39m[0m
-[0m [90m 41 | [39m[32m  )[39m[0m
+[0m[31m[1m>[22m[39m[90m 28 | [39m  [36mreturn[39m ([0m
+[0m [90m    | [39m  [31m[1m^[22m[39m[0m
+[0m [90m 29 | [39m    [33m<[39m[33m>[39m[0m
+[0m [90m 30 | [39m      [33m<[39m[33mAppHead[39m[0m
+[0m [90m 31 | [39m        icon[33m=[39m[32m"/assets/common/logo.svg"[39m[0m
 TypeError: Cannot read property 'players' of undefined
-    at Index (C:\Users\xlgkt\Documents\Sites web\doublecard\.next\server\pages\game\duno\[id].js:6021:20)
-    at processChild (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\react-dom\cjs\react-dom-server.node.development.js:3353:14)
-    at resolve (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\react-dom\cjs\react-dom-server.node.development.js:3270:5)
-    at ReactDOMServerRenderer.render (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\react-dom\cjs\react-dom-server.node.development.js:3753:22)
-    at ReactDOMServerRenderer.read (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\react-dom\cjs\react-dom-server.node.development.js:3690:29)
-    at renderToString (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\react-dom\cjs\react-dom-server.node.development.js:4298:27)
-    at Object.renderPage (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\next\dist\next-server\server\render.js:53:854)
-    at Function.getInitialProps (C:\Users\xlgkt\Documents\Sites web\doublecard\.next\server\pages\_document.js:556:19)
-    at loadGetInitialProps (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\next\dist\next-server\lib\utils.js:5:101)
-    at renderToHTML (C:\Users\xlgkt\Documents\Sites web\doublecard\node_modules\next\dist\next-server\server\render.js:53:1145)
-[31merror[39m - ./pages/game/duno/[id].tsx:39:1
-[31m[1mSyntax error[22m[39m: Unexpected token, expected ":" (39:0)
-
-[0m [90m 37 | [39m        {game [33m?[39m  [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 38 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 39 | [39m{game[33m.[39mgame[33m.[39mplayers[user[33m.[39mid][33m.[39mhand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m [90m    | [39m[31m[1m^[22m[39m[0m
-[0m [90m 40 | [39m  [36mreturn[39m ([0m
-[0m [90m 41 | [39m    [33m<[39m[33m>[39m[0m
-[0m [90m 42 | [39m      [33m<[39m[33mAppImage[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:39:1
-[31m[1mSyntax error[22m[39m: Unexpected token, expected ":" (39:0)
-
-[0m [90m 37 | [39m        {game [33m?[39m  [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 38 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 39 | [39mgame[33m.[39mgame[33m.[39mplayers[user[33m.[39mid][33m.[39mhand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m [90m    | [39m[31m[1m^[22m[39m[0m
-[0m [90m 40 | [39m  [36mreturn[39m ([0m
-[0m [90m 41 | [39m    [33m<[39m[33m>[39m[0m
-[0m [90m 42 | [39m      [33m<[39m[33mAppImage[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:39:1
-[31m[1mSyntax error[22m[39m: Unexpected token, expected ":" (39:0)
-
-[0m [90m 37 | [39m        {game [33m?[39m  [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m 38 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 39 | [39m{game[33m.[39mgame[33m.[39mplayers[user[33m.[39mid][33m.[39mhand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m [90m    | [39m[31m[1m^[22m[39m[0m
-[0m [90m 40 | [39m  [36mreturn[39m ([0m
-[0m [90m 41 | [39m    [33m<[39m[33m>[39m[0m
-[0m [90m 42 | [39m      [33m<[39m[33mAppImage[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:37:16
+    at Index (webpack-internal:///./pages/game/duno/[id].tsx:56:34)
+    at processChild (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3353:14)
+    at resolve (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3270:5)
+    at ReactDOMServerRenderer.render (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3753:22)
+    at ReactDOMServerRenderer.read (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3690:29)
+    at renderToString (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:4298:27)
+    at Object.renderPage (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:854)
+    at Function.getInitialProps (webpack-internal:///./node_modules/next/dist/pages/_document.js:211:19)
+    at loadGetInitialProps (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/lib/utils.js:5:101)
+    at renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:1145)
+TypeError: Cannot read property 'players' of undefined
+    at Index (webpack-internal:///./pages/game/duno/[id].tsx:56:34)
+    at processChild (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3353:14)
+    at resolve (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3270:5)
+    at ReactDOMServerRenderer.render (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3753:22)
+    at ReactDOMServerRenderer.read (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3690:29)
+    at renderToString (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:4298:27)
+    at Object.renderPage (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:854)
+    at Function.getInitialProps (webpack-internal:///./node_modules/next/dist/pages/_document.js:211:19)
+    at loadGetInitialProps (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/lib/utils.js:5:101)
+    at renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:1145)
+TypeError: Cannot read property 'players' of undefined
+    at Index (webpack-internal:///./pages/game/duno/[id].tsx:56:34)
+    at processChild (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3353:14)
+    at resolve (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3270:5)
+    at ReactDOMServerRenderer.render (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3753:22)
+    at ReactDOMServerRenderer.read (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3690:29)
+    at renderToString (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:4298:27)
+    at Object.renderPage (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:854)
+    at Function.getInitialProps (webpack-internal:///./node_modules/next/dist/pages/_document.js:211:19)
+    at loadGetInitialProps (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/lib/utils.js:5:101)
+    at renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:1145)
+TypeError: Cannot read property 'players' of undefined
+    at Index (webpack-internal:///./pages/game/duno/[id].tsx:56:34)
+    at processChild (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3353:14)
+    at resolve (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3270:5)
+    at ReactDOMServerRenderer.render (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3753:22)
+    at ReactDOMServerRenderer.read (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3690:29)
+    at renderToString (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:4298:27)
+    at Object.renderPage (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:854)
+    at Function.getInitialProps (webpack-internal:///./node_modules/next/dist/pages/_document.js:211:19)
+    at loadGetInitialProps (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/lib/utils.js:5:101)
+    at renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:1145)
+TypeError: Cannot read property 'players' of undefined
+    at Index (webpack-internal:///./pages/game/duno/[id].tsx:56:34)
+    at processChild (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3353:14)
+    at resolve (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3270:5)
+    at ReactDOMServerRenderer.render (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3753:22)
+    at ReactDOMServerRenderer.read (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:3690:29)
+    at renderToString (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/react-dom/cjs/react-dom-server.node.development.js:4298:27)
+    at Object.renderPage (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:854)
+    at Function.getInitialProps (webpack-internal:///./node_modules/next/dist/pages/_document.js:211:19)
+    at loadGetInitialProps (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/lib/utils.js:5:101)
+    at renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:53:1145)
+[31merror[39m - ./pages/game/duno/[id].tsx:48:13
 [31m[1mSyntax error[22m[39m: Unexpected token
 
-[0m [90m 35 | [39m      [33m/[39m[33m>[39m[0m
-[0m [90m 36 | [39m      [33m<[39m[33mAppInterface[39m t[33m=[39m{t1[33m.[39mt} inGame[33m=[39m{[36mtrue[39m}[33m>[39m[0m
-[0m[31m[1m>[22m[39m[90m 37 | [39m        {game [33m?[39m [36mreturn[39m [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m    | [39m                [31m[1m^[22m[39m[0m
-[0m [90m 38 | [39m{game[33m.[39mgame[33m.[39mplayers[user[33m.[39mid][33m.[39mhand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m [90m 39 | [39m  [36mreturn[39m ([0m
-[0m [90m 40 | [39m    [33m<[39m[33m>[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:37:16
+[0m [90m 46 | [39m            [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
+[0m [90m 47 | [39m            [33m<[39m[33mMyHand[39m hand[33m=[39m{game[33m.[39mplayers[user[33m.[39mid][33m.[39mhand} user[33m=[39m{user} [33m/[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 48 | [39m            {[36mconst[39m tab [33m=[39m [33mObject[39m[33m.[39mvalues(game[33m.[39mplayers)[0m
+[0m [90m    | [39m             [31m[1m^[22m[39m[0m
+[0m [90m 49 | [39m              [33m.[39mfind((player) [33m=>[39m player[33m.[39mid [33m!==[39m user[33m.[39mid)[0m
+[0m [90m 50 | [39m              [33m.[39mmap((player) [33m=>[39m ([0m
+[0m [90m 51 | [39m                [33m<[39m[33mOpponentHand[39m[0m
+[31merror[39m - ./pages/game/duno/[id].tsx:49:32
 [31m[1mSyntax error[22m[39m: Unexpected token
 
-[0m [90m 35 | [39m      [33m/[39m[33m>[39m[0m
-[0m [90m 36 | [39m      [33m<[39m[33mAppInterface[39m t[33m=[39m{t1[33m.[39mt} inGame[33m=[39m{[36mtrue[39m}[33m>[39m[0m
-[0m[31m[1m>[22m[39m[90m 37 | [39m        {game [33m?[39m [36mreturn[39m [33m<[39m[33m>[39m [33m<[39m[33mDeck[39m gameID[33m=[39m{gameID} [33m/[39m[33m>[39m[0m
-[0m [90m    | [39m                [31m[1m^[22m[39m[0m
-[0m [90m 38 | [39m{game[33m.[39mgame[33m.[39mplayers[user[33m.[39mid][33m.[39mhand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m [90m 39 | [39m  [36mreturn[39m ([0m
-[0m [90m 40 | [39m    [33m<[39m[33m>[39m[0m
-[31merror[39m - ./pages/game/duno/[id].tsx:46:24
-[31m[1mSyntax error[22m[39m: JSX value should be either an expression or a quoted JSX text
-
-[0m [90m 44 | [39m                    src[33m=[39m{[32m`/assets/cardSkin/duno/${card.color}/${card.value}`[39m}[0m
-[0m [90m 45 | [39m                    heigth[33m=[39m{[[32m'100px'[39m[33m,[39m [32m'100px'[39m[33m,[39m [32m'100px'[39m[33m,[39m [32m'100px'[39m]}[0m
-[0m[31m[1m>[22m[39m[90m 46 | [39m                    alt[33m=[39m[32m`${card.color}/${card.value}`[39m[0m
-[0m [90m    | [39m                        [31m[1m^[22m[39m[0m
-[0m [90m 47 | [39m                  [33m/[39m[33m>[39m[0m
-[0m [90m 48 | [39m                [33m<[39m[33m/[39m[33m>[39m[0m
-[0m [90m 49 | [39m              )[0m
-[31merror[39m - ./components/game/myHand.tsx:15:16
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 13 | [39m  [36mreturn[39m ([0m
-[0m [90m 14 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m[31m[1m>[22m[39m[90m 15 | [39m        {hand [33m?[39m [33m:[39m [33m<[39m[33m>[39m[33m<[39m[33m/[39m[33m>[39m}[0m
-[0m [90m    | [39m                [31m[1m^[22m[39m[0m
-[0m [90m 16 | [39m      {hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m [90m 17 | [39m        [36mreturn[39m ([0m
-[0m [90m 18 | [39m          [33m<[39m[33m>[39m[0m
-[31merror[39m - ./components/game/myHand.tsx:15:22
-[31m[1mSyntax error[22m[39m: Unexpected token, expected ","
-
-[0m [90m 13 | [39m  [36mreturn[39m ([0m
-[0m [90m 14 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m[31m[1m>[22m[39m[90m 15 | [39m        {hand [33m?[39m  {hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m [90m    | [39m                      [31m[1m^[22m[39m[0m
-[0m [90m 16 | [39m        [36mreturn[39m ([0m
-[0m [90m 17 | [39m          [33m<[39m[33m>[39m[0m
-[0m [90m 18 | [39m            [33m<[39m[33mAppImage[39m[0m
-[31merror[39m - ./pages/api/lobby/create.ts:15:15
-[31m[1mSyntax error[22m[39m: Did not expect a type annotation here.
-
-[0m [90m 13 | [39m    [36mif[39m (lobby[33m.[39mcoin [33m<=[39m userFirestore[33m.[39mdata()[33m.[39mcoin) {[0m
-[0m [90m 14 | [39m      lobby[33m.[39mplayers [33m=[39m [[0m
-[0m[31m[1m>[22m[39m[90m 15 | [39m        user[33m.[39mid[33m:[39m { id[33m:[39m user[33m.[39mid[33m,[39m profilImg[33m:[39m user[33m.[39mpicture[33m,[39m pseudo[33m:[39m user[33m.[39mpseudo }[33m,[39m[0m
-[0m [90m    | [39m               [31m[1m^[22m[39m[0m
-[0m [90m 16 | [39m      ][0m
-[0m [90m 17 | [39m      [36mconst[39m autoId [33m=[39m [33mRdb[39m[33m.[39mref([32m'lobby'[39m)[33m.[39mpush()[33m.[39mkey[0m
-[0m [90m 18 | [39m      lobby[33m.[39mid [33m=[39m autoId[0m
-[31merror[39m - ./pages/api/lobby/create.ts:15:15
-[31m[1mSyntax error[22m[39m: Did not expect a type annotation here.
-
-[0m [90m 13 | [39m    [36mif[39m (lobby[33m.[39mcoin [33m<=[39m userFirestore[33m.[39mdata()[33m.[39mcoin) {[0m
-[0m [90m 14 | [39m      lobby[33m.[39mplayers [33m=[39m [[0m
-[0m[31m[1m>[22m[39m[90m 15 | [39m        user[33m.[39mid[33m:[39m { id[33m:[39m user[33m.[39mid[33m,[39m profilImg[33m:[39m user[33m.[39mpicture[33m,[39m pseudo[33m:[39m user[33m.[39mpseudo }[33m,[39m[0m
-[0m [90m    | [39m               [31m[1m^[22m[39m[0m
-[0m [90m 16 | [39m      ][0m
-[0m [90m 17 | [39m      [36mconst[39m autoId [33m=[39m [33mRdb[39m[33m.[39mref([32m'lobby'[39m)[33m.[39mpush()[33m.[39mkey[0m
-[0m [90m 18 | [39m      lobby[33m.[39mid [33m=[39m autoId[0m
-API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/start, this may result in stalled requests.
-[31merror[39m - ./components/game/myHand.tsx:16:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 14 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m [90m 15 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 16 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 17 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 18 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 19 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-[31merror[39m - ./components/game/myHand.tsx:16:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 14 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m [90m 15 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 16 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 17 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 18 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 19 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-[31merror[39m - ./components/game/myHand.tsx:16:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 14 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m [90m 15 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 16 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 17 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 18 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 19 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-[31merror[39m - ./components/game/myHand.tsx:16:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 14 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m [90m 15 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 16 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 17 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 18 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 19 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-[31merror[39m - ./components/game/myHand.tsx:16:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 14 | [39m    [33m<[39m[33mBox[39m[33m>[39m[0m
-[0m [90m 15 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 16 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 17 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 18 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 19 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-[31merror[39m - ./components/game/myHand.tsx:17:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 15 | [39m      [0m
-[0m [90m 16 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 17 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 18 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 19 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 20 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-[31merror[39m - ./components/game/myHand.tsx:17:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 15 | [39m      [0m
-[0m [90m 16 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 17 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 18 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 19 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 20 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-[31merror[39m - ./components/game/myHand.tsx:17:10
-[31m[1mSyntax error[22m[39m: Unexpected token
-
-[0m [90m 15 | [39m      [0m
-[0m [90m 16 | [39m        hand[33m.[39mmap((card) [33m=>[39m {[0m
-[0m[31m[1m>[22m[39m[90m 17 | [39m          [36mreturn[39m ([0m
-[0m [90m    | [39m          [31m[1m^[22m[39m[0m
-[0m [90m 18 | [39m            [33m<[39m[33m>[39m[0m
-[0m [90m 19 | [39m              [33m<[39m[33mAppImage[39m[0m
-[0m [90m 20 | [39m                src[33m=[39m{[32m`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}`[39m}[0m
-API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/start, this may result in stalled requests.
-^C
+[0m [90m 47 | [39m            [33m<[39m[33mMyHand[39m hand[33m=[39m{game[33m.[39mplayers[user[33m.[39mid][33m.[39mhand} user[33m=[39m{user} [33m/[39m[33m>[39m[0m
+[0m [90m 48 | [39m            {[33mObject[39m[33m.[39mvalues(game[33m.[39mplayers)[0m
+[0m[31m[1m>[22m[39m[90m 49 | [39m              [33m.[39mfind((player) [33m=>[39m [36mif[39m(player) player[33m.[39mid [33m!==[39m user[33m.[39mid)[0m
+[0m [90m    | [39m                                [31m[1m^[22m[39m[0m
+[0m [90m 50 | [39m              [33m.[39mmap((player) [33m=>[39m ([0m
+[0m [90m 51 | [39m                [33m<[39m[33mOpponentHand[39m[0m
+[0m [90m 52 | [39m                  key[33m=[39m{player[33m.[39mid}[0m
