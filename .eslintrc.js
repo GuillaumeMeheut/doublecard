@@ -33,7 +33,7 @@ module.exports = {
       rules: {
         // We will use TypeScript's types for component props instead
         'react/prop-types': 'off',
-
+        'react-hooks/exhaustive-deps': 'off',
         // No need to import React when using Next.js
         'react/react-in-jsx-scope': 'off',
 
@@ -43,7 +43,9 @@ module.exports = {
         'react/display-name': ['off', { ignoreTranspilerName: false }],
 
         // Why would you want unused vars?
-        '@typescript-eslint/no-unused-vars': ['warn'],
+        '@typescript-eslint/no-unused-vars': ['off'],
+
+        '@typescript-eslint/no-explicit-any': 'off',
 
         'react/no-unescaped-entities': 'off',
 
@@ -56,6 +58,8 @@ module.exports = {
         //   },
         // ],
         '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        
 
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
       },

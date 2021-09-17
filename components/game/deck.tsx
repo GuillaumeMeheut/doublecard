@@ -1,21 +1,13 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent } from 'react'
 import { Box } from '@chakra-ui/react'
-import { AppButton, AppImage, AppInputNumber, AppText } from 'components'
-import { Color, FontSize, Spaces } from 'theme'
-import { useDeck, useHand } from 'hooks'
-import { getDunoDeck } from 'utils'
+import { CardDuno } from 'types'
+import { AppButton } from 'components'
 
 type Props = {
-  gameID: string
+  deck: Array<CardDuno>
+  draw: (nb: number) => void
 }
 
-export const Deck: FunctionComponent<Props> = ({ gameID }) => {
-  // const { deck, shuffle } = useDeck(getDunoDeck(), gameID)
-  // const { hand, draw } = useHand(deck, gameID)
-
-  // useEffect(() => {
-  //   shuffle()
-  // }, [])
-
-  return <Box>{/* <AppButton text={'draw'} onClick={() => draw(1)} /> */}</Box>
+export const Deck: FunctionComponent<Props> = ({ deck, draw }) => {
+  return <Box>{<AppButton text={'draw'} onClick={() => draw(1)} />}</Box>
 }

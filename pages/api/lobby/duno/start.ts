@@ -1,4 +1,3 @@
-import { getActiveElement } from 'formik'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { dealCards, getDunoDeck, Rdb, shuffleDeck } from 'utils'
 
@@ -13,7 +12,7 @@ export default async function joinDunoLobby(
       lobby.status = 'inGame'
       Rdb.ref(`lobby/${lobby.id}`).set(lobby)
 
-      let game = {
+      const game = {
         players: lobby.players,
         deck: shuffleDeck(getDunoDeck()),
       }

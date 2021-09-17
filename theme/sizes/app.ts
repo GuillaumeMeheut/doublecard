@@ -52,5 +52,5 @@ export const ModalSize = {
 }
 
 export const CardSize = {
-  height: ['75px', '90px', '100px', '100px'],
+  height: ['100px', '140px', '150px', '150px'],
 }

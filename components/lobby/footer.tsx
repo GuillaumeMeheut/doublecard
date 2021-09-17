@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
-import { Box, BoxProps } from '@chakra-ui/react'
-import { AppButton, AppImage, AppInputNumber, AppText } from 'components'
-import { Color, FontSize, Spaces } from 'theme'
+import { Box } from '@chakra-ui/react'
+import { AppButton } from 'components'
+import { Spaces } from 'theme'
 
 type Props = {
   text1: string

@@ -1,10 +1,18 @@
-import { AppHead, AppInterface, Deck, MyHand, OpponentHand } from 'components'
-import { useDeck, useHand } from 'hooks'
+import {
+  AppHead,
+  AppInterface,
+  Deck,
+  MyHand,
+  OpponentHand,
+  CardStacks,
+} from 'components'
+import { useDeck, useDuno, useHand } from 'hooks'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useEffect } from 'react'
 import { useObjectVal } from 'react-firebase-hooks/database'
 import { Color } from 'theme'
-import { getDunoDeck, getLanguageHeaders, Rdb, useAuth } from 'utils'
+import { getLanguageHeaders, Rdb, useAuth } from 'utils'
 
 export default function Index({ gameID }) {
   const t1 = useTranslation('common')
@@ -15,15 +23,27 @@ export default function Index({ gameID }) {
   user.skin = 'basic'
   //Définir le skin de l'user dans l'auth comme les coins
 
-  const { deck, shuffle } = useDeck(getDunoDeck(), gameID)
-  const { hand, draw } = useHand(deck, gameID)
-
   const [game, loadingGame, errorGame] = useObjectVal(Rdb.ref(`game/${gameID}`))
   const [lobby, loadingLobby, errorLobby] = useObjectVal(
     Rdb.ref(`lobby/${gameID}`),
   )
 
-  if (game) console.log(Object.values(game.players)[0]['id'])
+  useEffect(() => {
+    if (game) {
+      setGame(game)
+      setHand(game.players[user.id].hand)
+      setDeck(game.deck)
+    }
+    console.log('useffect')
+  }, [loadingGame])
+
+  const { setGame, randomizeTurn } = useDuno({}, gameID)
+  const { deck, setDeck, drawCard } = useDeck([], gameID)
+  const { hand, setHand, draw, playCard } = useHand([], drawCard, gameID)
+
+  if (game && lobby) {
+    randomizeTurn()
+  }
 
   return (
     <>
@@ -43,11 +63,12 @@ export default function Index({ gameID }) {
       <AppInterface t={t1.t} inGame={true}>
         {game && lobby ? (
           <>
-            <Deck gameID={gameID} />
-            <MyHand hand={game.players[user.id].hand} user={user} />
+            <Deck deck={deck} draw={draw} />
+            <CardStacks />
+            <MyHand hand={hand} playCard={playCard} user={user} />
             {Object.values(game.players)
-              .find((player) => player.id !== user.id)
-              .map((player) => (
+              .filter((player: any) => player.id !== user.id)
+              .map((player: any) => (
                 <OpponentHand
                   key={player.id}
                   nbCard={player.nbCard}

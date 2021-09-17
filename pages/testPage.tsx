@@ -5,8 +5,8 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useList } from 'react-firebase-hooks/database'
 
 export default function Index() {
-  const [user, loadingAuth, errorAuth] = useAuthState(auth)
-  const [snapshots, loadingUsers, errorUsers] = useList(Rdb.ref('users'))
+  const [user, loadingAuth] = useAuthState(auth)
+  const [snapshots, loadingUsers] = useList(Rdb.ref('users'))
 
   console.log('Loading:', loadingAuth, 'Current user:', user)
 

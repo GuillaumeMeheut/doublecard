@@ -1,22 +1,28 @@
 import { useState } from 'react'
+import { CardDuno } from 'types'
 import { Rdb, shuffleDeck } from 'utils'
 
 export function useDeck(baseDeck, gameID) {
-  const [deck, setDeck] = useState(baseDeck)
+  const [deck, setDeck] = useState<Array<CardDuno>>(baseDeck)
+
+  const updateData = () => {
+    Rdb.ref(`game/${gameID}/deck`).set(deck)
+  }
 
   const shuffle = () => {
     setDeck(shuffleDeck(deck))
-    Rdb.ref(`game/${gameID}/game`).child('deck').set(deck)
+    updateData()
   }
 
   const drawCard = (nb: number) => {
+    let cards = []
     for (let i = 0; i < nb; i++) {
-      const card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0]
+      cards.push(deck.splice(Math.floor(Math.random() * deck.length), 1)[0])
       setDeck(deck)
-      return card
     }
-    Rdb.ref(`game/${gameID}/game/deck`).set(deck)
+    updateData()
+    return cards
   }
 
-  return { deck, shuffle, drawCard }
+  return { deck, setDeck, shuffle, drawCard }
 }

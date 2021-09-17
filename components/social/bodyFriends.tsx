@@ -11,7 +11,7 @@ import {
 import { AppImage, AppText, Dot } from 'components'
 
 type Props = {
-  friends: Array<any>
+  friends: any
 }
 
 export const BodyFriends: FunctionComponent<Props> = ({ friends }) => {

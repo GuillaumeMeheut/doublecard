@@ -1,34 +1,31 @@
 import { useState } from 'react'
+import { CardDuno } from 'types'
 import { Rdb, useAuth } from 'utils'
-import { useDeck } from './useDeck'
 
-export function useHand(deck, gameID) {
-  const [hand, setHand] = useState([])
+export function useHand(baseHand, drawCard, gameID) {
+  const [hand, setHand] = useState<Array<CardDuno>>(baseHand)
 
   const { user } = useAuth()
 
-  const { drawCard } = useDeck(deck, gameID)
+  const updateData = (hand) => {
+    const updates = {}
+    updates[`game/${gameID}/players/${user.id}/hand`] = hand
+    updates[`game/${gameID}/players/${user.id}/nbCard`] = hand.length
+    Rdb.ref().update(updates)
+  }
 
   const draw = (nb: number) => {
-    for (let i = 0; i < nb; i++) {
-      const card = drawCard(nb)
-      hand.push(card)
-    }
-    setHand(hand)
-    Rdb.ref(`game/${gameID}/game/players/${user.id}`).set({
-      hand,
-      nbCard: hand.length,
-    })
+    const cards = drawCard(nb)
+    const newHand = hand.concat(cards)
+    setHand(newHand)
+    updateData(newHand)
   }
 
   const playCard = (index) => {
     hand.splice(index, 1)
     setHand(hand)
-    Rdb.ref(`game/${gameID}/game/players/${user.id}`).set({
-      hand,
-      nbCard: hand.length,
-    })
+    updateData(hand)
   }
 
-  return { hand, draw }
+  return { hand, setHand, draw, playCard }
 }

@@ -7,14 +7,10 @@ import { CardSize, ColorHover } from 'theme'
 type Props = {
   hand: any
   user: User
+  playCard: (index: number) => void
 }
 
-export const MyHand: FunctionComponent<Props> = ({ hand, user }) => {
-  const playCard = (card) => {
-    console.log('card played')
-    console.log(card)
-  }
-
+export const MyHand: FunctionComponent<Props> = ({ hand, user, playCard }) => {
   hand.sort((a, b) => {
     if (a.value > b.value) return 1
     if (a.value < b.value) return -1
@@ -29,18 +25,19 @@ export const MyHand: FunctionComponent<Props> = ({ hand, user }) => {
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center">
-      {hand.map((card) => {
+      {hand.map((card, index) => {
         return (
           <AppImage
-            key={`${card.color} ${card.value}`}
+            key={index}
             src={`/assets/cardSkin/duno/${user.skin}/${card.color}/${card.value}.svg`}
             alt={`${card.color} ${card.value}`}
-            heigth={CardSize.height}
+            height={CardSize.height}
+            cursor="pointer"
             transition="transform .2s"
             _hover={{
               transform: 'translateY(-15px)',
             }}
-            onClick={() => playCard(card)}
+            onClick={() => playCard(index)}
           />
         )
       })}
