@@ -1,16 +1,20 @@
 import React, { FunctionComponent } from 'react'
 import { Box } from '@chakra-ui/react'
 import { AppImage } from 'components'
-import { User } from 'types'
+import { CardDuno, User } from 'types'
 import { CardSize, ColorHover } from 'theme'
 
 type Props = {
   hand: any
   user: User
-  playCard: (index: number) => void
+  playCardDuno: (index: number) => void
 }
 
-export const MyHand: FunctionComponent<Props> = ({ hand, user, playCard }) => {
+export const MyHand: FunctionComponent<Props> = ({
+  hand,
+  user,
+  playCardDuno,
+}) => {
   hand.sort((a, b) => {
     if (a.value > b.value) return 1
     if (a.value < b.value) return -1
@@ -37,7 +41,9 @@ export const MyHand: FunctionComponent<Props> = ({ hand, user, playCard }) => {
             _hover={{
               transform: 'translateY(-15px)',
             }}
-            onClick={() => playCard(index)}
+            onClick={() => {
+              playCardDuno(index)
+            }}
           />
         )
       })}

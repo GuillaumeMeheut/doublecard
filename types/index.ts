@@ -1,3 +1,2 @@
 export * from './user'
-export * from './gamesSettings'
-export * from './card'
+export * from './gameSettings'

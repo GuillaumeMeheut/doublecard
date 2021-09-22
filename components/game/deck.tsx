@@ -5,9 +5,9 @@ import { AppButton } from 'components'
 
 type Props = {
   deck: Array<CardDuno>
-  draw: (nb: number) => void
+  drawDuno: () => void
 }
 
-export const Deck: FunctionComponent<Props> = ({ deck, draw }) => {
-  return <Box>{<AppButton text={'draw'} onClick={() => draw(1)} />}</Box>
+export const Deck: FunctionComponent<Props> = ({ deck, drawDuno }) => {
+  return <Box>{<AppButton text={'draw'} onClick={() => drawDuno()} />}</Box>
 }

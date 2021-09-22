@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { CardDuno } from 'types'
 import { Rdb, shuffleDeck } from 'utils'
 
-export function useDeck(baseDeck, gameID) {
-  const [deck, setDeck] = useState<Array<CardDuno>>(baseDeck)
+export function useDeck(gameID) {
+  const [deck, setDeck] = useState<Array<CardDuno>>([])
 
   const updateData = () => {
     Rdb.ref(`game/${gameID}/deck`).set(deck)

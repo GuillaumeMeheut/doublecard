@@ -5,8 +5,9 @@ import {
   MyHand,
   OpponentHand,
   CardStacks,
+  ColorSelector,
 } from 'components'
-import { useDeck, useDuno, useHand } from 'hooks'
+import { useDuno } from 'hooks'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useEffect } from 'react'
@@ -33,17 +34,29 @@ export default function Index({ gameID }) {
       setGame(game)
       setHand(game.players[user.id].hand)
       setDeck(game.deck)
+      setStack(game.stack)
     }
-    console.log('useffect')
   }, [loadingGame])
 
-  const { setGame, randomizeTurn } = useDuno({}, gameID)
-  const { deck, setDeck, drawCard } = useDeck([], gameID)
-  const { hand, setHand, draw, playCard } = useHand([], drawCard, gameID)
+  useEffect(() => {
+    if (game) {
+      setGame(game)
+      setStack(game.stack)
+    }
+  }, [game])
 
-  if (game && lobby) {
-    randomizeTurn()
-  }
+  const {
+    setGame,
+    setDeck,
+    setHand,
+    setStack,
+    deck,
+    hand,
+    colorVisible,
+    playCardDuno,
+    drawDuno,
+    selectColor,
+  } = useDuno(gameID, user)
 
   return (
     <>
@@ -63,9 +76,10 @@ export default function Index({ gameID }) {
       <AppInterface t={t1.t} inGame={true}>
         {game && lobby ? (
           <>
-            <Deck deck={deck} draw={draw} />
-            <CardStacks />
-            <MyHand hand={hand} playCard={playCard} user={user} />
+            {colorVisible ? <ColorSelector selectColor={selectColor} /> : <></>}
+            <Deck deck={deck} drawDuno={drawDuno} />
+            <CardStacks stack={game.stack[game.stack.length - 1]} />
+            <MyHand hand={hand} playCardDuno={playCardDuno} user={user} />
             {Object.values(game.players)
               .filter((player: any) => player.id !== user.id)
               .map((player: any) => (

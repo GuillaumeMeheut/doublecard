@@ -15,8 +15,27 @@ export default async function joinDunoLobby(
       const game = {
         players: lobby.players,
         deck: shuffleDeck(getDunoDeck()),
+        stack: [],
       }
 
+      //premiere carte sur le stack
+      let firstCard
+      do {
+        firstCard = game.deck.splice(
+          Math.floor(Math.random() * game.deck.length),
+          1,
+        )[0]
+      } while (
+        firstCard.color === 'special' ||
+        firstCard.value === '+2' ||
+        firstCard.value === 'cross' ||
+        firstCard.value === 'arrow'
+      )
+      firstCard.skin = 'basic'
+      game.stack.push(firstCard)
+      Rdb.ref(`game/${lobby.id}/stack`).set(game.stack)
+
+      //distribution des cartes
       game.players.forEach((player, index) => {
         const nbCard = 7
         const { deck, hand } = dealCards(game.deck, nbCard)
@@ -27,6 +46,16 @@ export default async function joinDunoLobby(
           game.players[index],
         )
       })
+      //Randomize turn
+      const id =
+        game.players[Math.floor(Math.random() * game.players.length)].id
+      Rdb.ref(`game/${lobby.id}/turn`).set(id)
+
+      //set sens
+      Rdb.ref(`game/${lobby.id}/invertSens`).set(false)
+
+      //set plus
+      Rdb.ref(`game/${lobby.id}/plus`).set(1)
 
       Rdb.ref(`game/${lobby.id}/deck`)
         .set(game.deck)

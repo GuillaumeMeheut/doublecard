@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { CardDuno } from 'types'
 import { Rdb, useAuth } from 'utils'
 
-export function useHand(baseHand, drawCard, gameID) {
-  const [hand, setHand] = useState<Array<CardDuno>>(baseHand)
+export function useHand(drawCard, gameID) {
+  const [hand, setHand] = useState<Array<CardDuno>>([])
 
   const { user } = useAuth()
 
@@ -16,15 +16,17 @@ export function useHand(baseHand, drawCard, gameID) {
 
   const draw = (nb: number) => {
     const cards = drawCard(nb)
+    console.log(cards)
     const newHand = hand.concat(cards)
     setHand(newHand)
     updateData(newHand)
   }
 
   const playCard = (index) => {
-    hand.splice(index, 1)
+    const card = hand.splice(index, 1)[0]
     setHand(hand)
     updateData(hand)
+    return card
   }
 
   return { hand, setHand, draw, playCard }

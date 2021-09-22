@@ -1,6 +1,5 @@
 PRIMAIRE:
--Qui joue en premier/mécanique de tour
--Hook Duno pour les règles du jeu 
+-faire les règles des +2
 
 
 
@@ -8,3 +7,4 @@ SECONDAIRE:
 -Skin dans le firestore
 -nb coin dans la navbar éviter l'appel a firestore 
 a chaque changement de page 
+-animation du composant des choix des couleurs
