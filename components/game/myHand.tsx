@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Box } from '@chakra-ui/react'
-import { AppImage } from 'components'
+import { AppImage, MotionBox } from 'components'
 import { CardDuno, User } from 'types'
 import { CardSize, ColorHover } from 'theme'
 

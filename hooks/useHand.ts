@@ -16,7 +16,6 @@ export function useHand(drawCard, gameID) {
 
   const draw = (nb: number) => {
     const cards = drawCard(nb)
-    console.log(cards)
     const newHand = hand.concat(cards)
     setHand(newHand)
     updateData(newHand)

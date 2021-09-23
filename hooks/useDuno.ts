@@ -30,17 +30,28 @@ export function useDuno(gameID, user) {
     let lastCard = game.stack[game.stack.length - 1]
 
     if (game.turn === user.id) {
-      if (game.plus !== 1) {
-        if (cardPlayed.value !== '+2' && cardPlayed.value !== '+4') {
-          cardPlayed.value = ''
-          cardPlayed.color = ''
-        }
-      }
       if (
-        cardPlayed.color === game.color ||
-        cardPlayed.value === lastCard.value ||
-        cardPlayed.color === lastCard.color ||
-        cardPlayed.color === 'special'
+        game.plus !== 1 &&
+        (cardPlayed.value === '+2' || cardPlayed.value === '+4')
+      ) {
+        //a refactoriser
+        addCardOnStack(playCard(index), user.skin)
+        switch (cardPlayed.value) {
+          case '+2':
+            deleteColor()
+            cardPlus(2)
+            break
+          case '+4':
+            setColorVisible(true)
+            cardPlus(4)
+            break
+        }
+      } else if (
+        game.plus === 1 &&
+        (cardPlayed.color === game.color ||
+          cardPlayed.value === lastCard.value ||
+          cardPlayed.color === lastCard.color ||
+          cardPlayed.color === 'special')
       ) {
         addCardOnStack(playCard(index), user.skin)
         switch (cardPlayed.value) {
@@ -127,9 +138,13 @@ export function useDuno(gameID, user) {
 
   //carte +2 ou +4
   const cardPlus = (nb: number) => {
+    console.log(nb)
+    console.log(game.plus)
+
     if (game.plus !== 1) nb += game.plus
+
     updateData({ plus: nb })
-    endTurn()
+    if (nb !== 4) endTurn()
   }
 
   //tour suivant
