@@ -1,4 +1,5 @@
 API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
 API resolved without sending a response for /api/lobby/duno/start, this may result in stalled requests.
+[2021-09-23T08:59:37.825Z]  @firebase/firestore: Firestore (8.8.1): Connection GRPC stream error. Code: 13 Message: 13 INTERNAL: Received RST_STREAM with code 2 triggered by internal client error: read ETIMEDOUT
 API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
 API resolved without sending a response for /api/lobby/duno/start, this may result in stalled requests.

@@ -57,10 +57,15 @@ export function useDuno(gameID, user) {
             break
           case 'joker':
             setColorVisible(true)
+            resetPlus()
             break
           case '+2':
             deleteColor()
             cardPlus(2)
+            break
+          case '+4':
+            setColorVisible(true)
+            cardPlus(4)
             break
           default:
             deleteColor()
@@ -109,7 +114,6 @@ export function useDuno(gameID, user) {
   //carte choix des couleurs
   const selectColor = (color: string) => {
     setColorVisible(false)
-    resetPlus()
     updateData({ color })
     endTurn()
   }
