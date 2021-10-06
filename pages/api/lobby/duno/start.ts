@@ -57,6 +57,9 @@ export default async function joinDunoLobby(
       //set plus
       Rdb.ref(`game/${lobby.id}/plus`).set(1)
 
+      //set status
+      Rdb.ref(`game/${lobby.id}/status`).set('playing')
+
       Rdb.ref(`game/${lobby.id}/deck`)
         .set(game.deck)
         .then(() => {

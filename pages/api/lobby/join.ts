@@ -8,7 +8,7 @@ export default async function joinLobby(
   try {
     const { lobby, user } = req.body
 
-    lobby.players.push({ pseudo: user.pseudo, id: user.id })
+    lobby.players.push({ pseudo: user.pseudo, img: user.img, id: user.id })
 
     Rdb.ref(`lobby/${lobby.id}`).update(lobby)
 

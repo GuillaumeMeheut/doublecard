@@ -30,7 +30,7 @@ export const AppInterface: FunctionComponent<Props> = ({
       justifyContent="flex-start"
       alignItems="center"
     >
-      {inGame ? null : <NavBar t={t} />}
+      {inGame ? null : user.id ? <NavBar t={t} user={user} /> : null}
       {children}
       <Friends />
     </Box>

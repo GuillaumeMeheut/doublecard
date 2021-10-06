@@ -73,6 +73,7 @@ export default function Index() {
   )
 }
 
+//@ts-ignore
 export const getServerSideProps = async (context) => {
   return {
     props: {

@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import {
   AppHead,
   AppInterface,
@@ -6,11 +7,12 @@ import {
   OpponentHand,
   CardStacks,
   ColorSelector,
+  AvatarGame,
 } from 'components'
 import { useDuno } from 'hooks'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useObjectVal } from 'react-firebase-hooks/database'
 import { Color } from 'theme'
 import { getLanguageHeaders, Rdb, useAuth } from 'utils'
@@ -39,6 +41,12 @@ export default function Index({ gameID }) {
   }, [loadingGame])
 
   useEffect(() => {
+    if (lobby) {
+      setLobby(lobby)
+    }
+  }, [loadingLobby])
+
+  useEffect(() => {
     if (game) {
       setGame(game)
       setStack(game.stack)
@@ -47,6 +55,7 @@ export default function Index({ gameID }) {
 
   const {
     setGame,
+    setLobby,
     setDeck,
     setHand,
     setStack,
@@ -80,14 +89,21 @@ export default function Index({ gameID }) {
             <Deck deck={deck} drawDuno={drawDuno} />
             <CardStacks stack={game.stack[game.stack.length - 1]} />
             <MyHand hand={hand} playCardDuno={playCardDuno} user={user} />
+            <AvatarGame pseudo={user.pseudo} img={user.img} />
             {Object.values(game.players)
               .filter((player: any) => player.id !== user.id)
               .map((player: any) => (
-                <OpponentHand
-                  key={player.id}
-                  nbCard={player.nbCard}
-                  skin={'basic'}
-                />
+                <Box>
+                  <OpponentHand
+                    key={player.id}
+                    nbCard={player.nbCard}
+                    skin={'basic'}
+                  />
+                  <AvatarGame
+                    pseudo={player.pseudo}
+                    img={player.img ? player.img : null}
+                  />
+                </Box>
               ))}
             )
           </>

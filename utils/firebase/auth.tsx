@@ -38,14 +38,13 @@ function useProvideAuth() {
         firestore.collection('users').doc(response.user.uid).set({
           id: response.user.uid,
           email: email,
-          profilImg: null,
+          img: null,
           pseudo: pseudo,
           coin: 50,
         })
         response.user.updateProfile({
           displayName: pseudo,
         })
-        console.log(response.user)
         setUser(response.user)
         return response.user
       })
@@ -87,8 +86,9 @@ function useProvideAuth() {
     user: {
       id: user && user.uid,
       pseudo: user && user.displayName,
+      // token: user.xa,
       email: user && user.email,
-      picture: user && user.photoURL,
+      img: user && user.photoURL,
     },
     signin,
     signup,

@@ -1,21 +1,23 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import { ButtonSize, Color, ColorHover, FontSize, Spaces } from 'theme'
 import { AppButtonLink, AppImage, AppImageLink, AppText } from 'components'
 import { TFunction } from 'next-i18next'
 import { User } from 'types'
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore'
-import { firestore } from 'utils'
+import { firestore, useAuth } from 'utils'
 
 type Props = {
   t: TFunction
+  user: any
 }
 
-export const NavBar: FunctionComponent<Props> = ({ t }) => {
-  const [user, loading] = useDocumentDataOnce<User>(
-    // firestore.doc(`/users/${user.id}`),
-    firestore.doc(`/users/hzS8K0hou6hpSPhuy4dNCSDCBJ63`),
-  )
+export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
+  const [userData, loading] = user
+    ? useDocumentDataOnce<User>(firestore.doc(`/users/${user.id}`))
+    : null
+
+  if (!loading) console.log(userData)
 
   // const getCoin = () => {}
 
@@ -79,7 +81,7 @@ export const NavBar: FunctionComponent<Props> = ({ t }) => {
             fontWeight="700"
             marginRight={Spaces.componentSmall}
           >
-            {loading ? '?' : user.coin}
+            {loading ? '?' : userData.coin}
           </AppText>
           <AppImage
             src="/assets/common/coin.svg"
@@ -89,7 +91,7 @@ export const NavBar: FunctionComponent<Props> = ({ t }) => {
         </Box>
         <AppImageLink
           href="/profil"
-          src={loading ? null : user.profilImg}
+          src={loading ? null : userData.img}
           profil={true}
           width={['30px', '40px', '50px', '50px']}
           height={['30px', '40px', '50px', '50px']}

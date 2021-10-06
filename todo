@@ -1,11 +1,14 @@
 PRIMAIRE:
 -gerer qui a gagné la partie + attribution des gains
--firebase admin redirection si pas connecté
+-firebase admin redirection vers auth si pas connecté
+-deduire les coins lorsque la partie se lance
 
 
 
 SECONDAIRE:
+-optimiser le start de duno api
 -Skin dans le firestore
 -nb coin dans la navbar éviter l'appel a firestore 
 a chaque changement de page 
 -animation du composant des choix des couleurs
+-afficher le nombre de carte a piocher actuel si > 1

@@ -38,4 +38,6 @@ export interface DunoSettingInGame {
   invertSens: boolean
   color: string
   plus: number
+  status: 'gameover' | 'playing'
+  winner: string
 }

@@ -1,2 +1,2 @@
-export * from './autorization'
+export * from './game'
 export * from './lobby'

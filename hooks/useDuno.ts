@@ -1,10 +1,12 @@
+import { endGameDuno } from 'api'
 import { useDeck, useHand, useStack } from 'hooks'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DunoSettingInGame } from 'types'
 import { Rdb } from 'utils'
 
 export function useDuno(gameID, user) {
   const [game, setGame] = useState<DunoSettingInGame>()
+  const [lobby, setLobby] = useState()
 
   const { deck, setDeck, drawCard } = useDeck(gameID)
   const { hand, setHand, draw, playCard } = useHand(drawCard, gameID)
@@ -12,8 +14,22 @@ export function useDuno(gameID, user) {
 
   const [colorVisible, setColorVisible] = useState<boolean>(false)
 
+  useEffect(() => {
+    if (game)
+      if (game.players[user.id].hand === undefined) {
+        updateData({ status: 'gameover', winner: user.id })
+      }
+  }, [hand])
+
+  useEffect(() => {
+    if (game)
+      if (game.status === 'gameover' && game.winner) {
+        gameOver()
+      }
+  }, [game])
+
   const updateData = (parameters) => {
-    const { turn, invertSens, color, plus } = parameters
+    const { turn, invertSens, color, plus, status, winner } = parameters
 
     const updates = {}
     if (turn) updates[`game/${gameID}/turn`] = turn
@@ -21,6 +37,8 @@ export function useDuno(gameID, user) {
       updates[`game/${gameID}/invertSens`] = invertSens
     if (color) updates[`game/${gameID}/color`] = color
     if (plus) updates[`game/${gameID}/plus`] = plus
+    if (status) updates[`game/${gameID}/status`] = status
+    if (winner) updates[`game/${gameID}/winner`] = winner
 
     Rdb.ref().update(updates)
   }
@@ -29,7 +47,7 @@ export function useDuno(gameID, user) {
     let cardPlayed = hand[index]
     let lastCard = game.stack[game.stack.length - 1]
 
-    if (game.turn === user.id) {
+    if (game.turn === user.id && game.status !== 'gameover') {
       if (
         game.plus !== 1 &&
         (cardPlayed.value === '+2' || cardPlayed.value === '+4')
@@ -40,6 +58,7 @@ export function useDuno(gameID, user) {
           case '+2':
             deleteColor()
             cardPlus(2)
+            endTurn()
             break
           case '+4':
             setColorVisible(true)
@@ -73,6 +92,7 @@ export function useDuno(gameID, user) {
           case '+2':
             deleteColor()
             cardPlus(2)
+            endTurn()
             break
           case '+4':
             setColorVisible(true)
@@ -138,13 +158,8 @@ export function useDuno(gameID, user) {
 
   //carte +2 ou +4
   const cardPlus = (nb: number) => {
-    console.log(nb)
-    console.log(game.plus)
-
     if (game.plus !== 1) nb += game.plus
-
     updateData({ plus: nb })
-    if (nb !== 4) endTurn()
   }
 
   //tour suivant
@@ -167,9 +182,15 @@ export function useDuno(gameID, user) {
     }
     updateData({ turn: id })
   }
+  //fin du jeu
+  const gameOver = () => {
+    if (game.winner === user.id) endGameDuno(game.winner, lobby)
+    //faire pop la popup du gagnant
+  }
 
   return {
     setGame,
+    setLobby,
     setDeck,
     setHand,
     setStack,

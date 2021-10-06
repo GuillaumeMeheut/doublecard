@@ -10,6 +10,7 @@ const joinRoomApi = (lobby, user) => {
 const leaveRoomApi = (lobby, user) => {
   return axios.post('/api/lobby/leave', { lobby, user })
 }
+
 const startGameApi = (lobby) => {
   return axios.post(`/api/lobby/${lobby.type.toLowerCase()}/start`, { lobby })
 }
