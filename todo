@@ -1,6 +1,5 @@
 PRIMAIRE:
 -gerer qui a gagné la partie + attribution des gains
--firebase admin redirection vers auth si pas connecté
 -deduire les coins lorsque la partie se lance
 
 

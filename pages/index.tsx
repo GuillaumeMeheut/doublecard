@@ -14,6 +14,7 @@ import { useState } from 'react'
 import { Color, Spaces } from 'theme'
 import { getLanguageHeaders, Rdb } from 'utils'
 import { useListVals } from 'react-firebase-hooks/database'
+import { isAuthenticated } from 'api/autorization'
 
 export default function Index() {
   const t1 = useTranslation('common')
@@ -73,8 +74,7 @@ export default function Index() {
   )
 }
 
-//@ts-ignore
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = isAuthenticated(async (context) => {
   return {
     props: {
       ...(await serverSideTranslations(getLanguageHeaders(context), [
@@ -83,4 +83,4 @@ export const getServerSideProps = async (context) => {
       ])),
     },
   }
-}
+})

@@ -1,4 +1,5 @@
 import { Box, useToast } from '@chakra-ui/react'
+import { isAuthenticated } from 'api/autorization'
 import { AppHead, AppInterface, AppText, FooterLobby } from 'components'
 import { useLobby } from 'hooks'
 import { useTranslation } from 'next-i18next'
@@ -81,7 +82,9 @@ export default function Index({ lobbyID }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = isAuthenticated(async (context) => {
+  console.log(context)
+
   return {
     props: {
       ...(await serverSideTranslations(getLanguageHeaders(context), [
@@ -91,4 +94,4 @@ export const getServerSideProps = async (context) => {
       lobbyID: context.query.id,
     },
   }
-}
+})

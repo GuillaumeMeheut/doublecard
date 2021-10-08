@@ -18,7 +18,7 @@ export default async function createLobby(
         .child(autoId)
         .set(lobby)
         .then(() => {
-          // res.redirect(`/lobby/${lobby.type.toLowerCase()}/${lobby.id}`)
+          // res.redirect(200, `/lobby/${lobby.type.toLowerCase()}/${lobby.id}`)
           res.json(lobby.id)
         })
     } else {

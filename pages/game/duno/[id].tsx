@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react'
+import { isAuthenticated } from 'api/autorization'
 import {
   AppHead,
   AppInterface,
@@ -8,6 +9,7 @@ import {
   CardStacks,
   ColorSelector,
   AvatarGame,
+  TextZoomEffect,
 } from 'components'
 import { useDuno } from 'hooks'
 import { useTranslation } from 'next-i18next'
@@ -67,6 +69,19 @@ export default function Index({ gameID }) {
     selectColor,
   } = useDuno(gameID, user)
 
+  const returnAreaPlayer = (index: number): string => {
+    switch (index) {
+      case 0:
+        return 'player1'
+      case 1:
+        return 'player2'
+      case 2:
+        return 'player3'
+      default:
+        break
+    }
+  }
+
   return (
     <>
       <AppHead
@@ -86,26 +101,67 @@ export default function Index({ gameID }) {
         {game && lobby ? (
           <>
             {colorVisible ? <ColorSelector selectColor={selectColor} /> : <></>}
-            <Deck deck={deck} drawDuno={drawDuno} />
-            <CardStacks stack={game.stack[game.stack.length - 1]} />
-            <MyHand hand={hand} playCardDuno={playCardDuno} user={user} />
-            <AvatarGame pseudo={user.pseudo} img={user.img} />
-            {Object.values(game.players)
-              .filter((player: any) => player.id !== user.id)
-              .map((player: any) => (
-                <Box>
-                  <OpponentHand
+            {game.turn === user.id ? (
+              <TextZoomEffect
+                text={'Your Turn'}
+                textColor={'white'}
+                bgColor={Color.blackSecond}
+              />
+            ) : (
+              <></>
+            )}
+
+            <Box
+              display="grid"
+              gridTemplateAreas={`". player1 ."
+              "player2 cardStack player3"
+              ". player4 ."`}
+            >
+              {Object.values(game.players)
+                .filter((player: any) => player.id !== user.id)
+                .map((player: any, index: number) => (
+                  <Box
                     key={player.id}
-                    nbCard={player.nbCard}
-                    skin={'basic'}
-                  />
-                  <AvatarGame
-                    pseudo={player.pseudo}
-                    img={player.img ? player.img : null}
-                  />
-                </Box>
-              ))}
-            )
+                    gridArea={returnAreaPlayer(index)}
+                    display="flex"
+                    flexDirection={index === 0 ? 'column-reverse' : 'column'}
+                    justifyContent="center"
+                    alignItems="center"
+                    transform={
+                      index === 1
+                        ? 'rotate(90deg)'
+                        : index === 2
+                        ? 'rotate(-90deg)'
+                        : ''
+                    }
+                  >
+                    <OpponentHand nbCard={player.nbCard} skin={'basic'} />
+                    <AvatarGame
+                      pseudo={player.pseudo}
+                      img={player.img ? player.img : null}
+                      turn={player.id === game.turn ? true : false}
+                    />
+                  </Box>
+                ))}
+              <Box
+                gridArea="cardStack"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Deck deck={deck} drawDuno={drawDuno} />
+                <CardStacks stack={game.stack[game.stack.length - 1]} />
+              </Box>
+              <Box gridArea="player4">
+                <MyHand hand={hand} playCardDuno={playCardDuno} user={user} />
+                <AvatarGame
+                  pseudo={user.pseudo}
+                  img={user.img}
+                  turn={user.id === game.turn ? true : false}
+                />
+                )
+              </Box>
+            </Box>
           </>
         ) : (
           'Loading...'
@@ -115,7 +171,7 @@ export default function Index({ gameID }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = isAuthenticated(async (context) => {
   return {
     props: {
       ...(await serverSideTranslations(getLanguageHeaders(context), [
@@ -126,4 +182,4 @@ export const getServerSideProps = async (context) => {
       gameID: context.query.id,
     },
   }
-}
+})

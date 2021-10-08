@@ -5,9 +5,10 @@ import { AppImage, AppText } from 'components'
 type Props = {
   pseudo: string
   img: string
+  turn: boolean
 }
 
-export const AvatarGame: FunctionComponent<Props> = ({ pseudo, img }) => {
+export const AvatarGame: FunctionComponent<Props> = ({ pseudo, img, turn }) => {
   return (
     <Box
       display="flex"
@@ -15,7 +16,23 @@ export const AvatarGame: FunctionComponent<Props> = ({ pseudo, img }) => {
       justifyContent="center"
       alignItems="center"
     >
-      <AppImage src={img} alt={pseudo} width={'50px'} />
+      <Box position="relative">
+        {turn ? (
+          <Box
+            position="absolute"
+            width="100%"
+            height="100%"
+            rounded="full"
+            backgroundColor="black"
+            opacity=".5"
+            zIndex={5}
+          />
+        ) : (
+          <></>
+        )}
+        <AppImage src={img} alt={pseudo} width={'50px'} rounded="full" />
+      </Box>
+
       <AppText>{pseudo}</AppText>
     </Box>
   )

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext, createContext } from 'react'
 import queryString from 'query-string'
 import { auth, firestore } from 'utils'
+import nookies from 'nookies'
 
 const authContext = createContext({
   user: undefined,
@@ -34,7 +35,6 @@ function useProvideAuth() {
     return auth
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
-        console.log(response.user)
         firestore.collection('users').doc(response.user.uid).set({
           id: response.user.uid,
           email: email,
@@ -53,6 +53,7 @@ function useProvideAuth() {
   const signout = () => {
     return auth.signOut().then(() => {
       setUser(false)
+      nookies.destroy(undefined, 'token')
     })
   }
 
@@ -71,7 +72,7 @@ function useProvideAuth() {
   }
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user)
       } else {
@@ -82,11 +83,27 @@ function useProvideAuth() {
     return () => unsubscribe()
   }, [])
 
+  useEffect(() => {
+    return auth.onIdTokenChanged(async (user) => {
+      if (user) {
+        setUser(user)
+        const token = await user.getIdToken()
+        nookies.set(undefined, 'token', token, {
+          //1jour
+          maxAge: 24 * 60 * 60,
+          path: '/',
+        })
+      } else {
+        setUser(false)
+        nookies.set(undefined, 'token', '', {})
+      }
+    })
+  }, [])
+
   return {
     user: {
       id: user && user.uid,
       pseudo: user && user.displayName,
-      // token: user.xa,
       email: user && user.email,
       img: user && user.photoURL,
     },
