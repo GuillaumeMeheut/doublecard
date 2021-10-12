@@ -13,11 +13,13 @@ type Props = {
 }
 
 export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
-  const [userData, loading] = user
-    ? useDocumentDataOnce<User>(firestore.doc(`/users/${user.id}`))
-    : null
+  const [userData, loading] = useDocumentDataOnce<User>(
+    firestore.doc(`/users/${user.id}`),
+  )
 
-  if (!loading) console.log(userData)
+  // const [userData, loading] = user
+  //   ? useDocumentDataOnce<User>(firestore.doc(`/users/${user.id}`))
+  //   : null
 
   // const getCoin = () => {}
 

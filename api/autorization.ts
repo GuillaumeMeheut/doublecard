@@ -13,11 +13,14 @@ export const isAuthenticated = (fn) => async (context: NextPageContext) => {
     if (cookies.token) {
       const { uid } = await adminAuth.verifyIdToken(cookies.token)
       if (uid) {
-        return await fn(context)
+        console.log(uid)
+
+        // return await fn(context)
       }
     } else {
-      context.res?.writeHead(302, { location: '/auth' })
-      context.res?.end()
+      // context.res?.writeHead(302, { location: '/auth' })
+      // context.res?.end()
+      console.log('no uid')
     }
   } catch (error) {
     console.log(error)
