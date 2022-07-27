@@ -74,7 +74,7 @@ export default function Index() {
   )
 }
 
-export const getServerSideProps = isAuthenticated(async (context) => {
+export const getServerSideProps = async (context) => {
   return {
     props: {
       ...(await serverSideTranslations(getLanguageHeaders(context), [
@@ -83,4 +83,4 @@ export const getServerSideProps = isAuthenticated(async (context) => {
       ])),
     },
   }
-})
+}

@@ -1,11 +1,55 @@
+Warning: Invalid value for prop `validate` on <div> tag. Either remove it from the element, or pass a string or number value to keep it in the DOM. For details, see https://reactjs.org/link/attribute-behavior 
+    at div
+    at Box (/Users/guillaume/Documents/Perso/doublecard/node_modules/@emotion/react/dist/emotion-element-deca0de5.cjs.dev.js:43:25)
+    at eval (webpack-internal:///./components/general/field.tsx:29:5)
+    at div
+    at Box (/Users/guillaume/Documents/Perso/doublecard/node_modules/@emotion/react/dist/emotion-element-deca0de5.cjs.dev.js:43:25)
+    at form
+    at Form (/Users/guillaume/Documents/Perso/doublecard/node_modules/formik/dist/formik.cjs.development.js:1391:22)
+    at Formik (/Users/guillaume/Documents/Perso/doublecard/node_modules/formik/dist/formik.cjs.development.js:1063:19)
+    at div
+    at Box (/Users/guillaume/Documents/Perso/doublecard/node_modules/@emotion/react/dist/emotion-element-deca0de5.cjs.dev.js:43:25)
+    at div
+    at Box (/Users/guillaume/Documents/Perso/doublecard/node_modules/@emotion/react/dist/emotion-element-deca0de5.cjs.dev.js:43:25)
+    at Index (webpack-internal:///./pages/auth/signin.tsx:40:74)
+    at EnvironmentProvider (/Users/guillaume/Documents/Perso/doublecard/node_modules/@chakra-ui/react-env/dist/cjs/env.js:38:24)
+    at ColorModeProvider (/Users/guillaume/Documents/Perso/doublecard/node_modules/@chakra-ui/color-mode/dist/cjs/color-mode-provider.js:51:21)
+    at ThemeProvider (/Users/guillaume/Documents/Perso/doublecard/node_modules/@emotion/react/dist/emotion-element-deca0de5.cjs.dev.js:93:21)
+    at ThemeProvider (/Users/guillaume/Documents/Perso/doublecard/node_modules/@chakra-ui/system/dist/cjs/providers.js:24:34)
+    at /Users/guillaume/Documents/Perso/doublecard/node_modules/@chakra-ui/hooks/dist/cjs/use-id.js:22:23
+    at /Users/guillaume/Documents/Perso/doublecard/node_modules/@chakra-ui/hooks/dist/cjs/use-id.js:22:23
+    at ChakraProvider (/Users/guillaume/Documents/Perso/doublecard/node_modules/@chakra-ui/react/dist/cjs/chakra-provider.js:31:24)
+    at ProvideAuth (webpack-internal:///./utils/firebase/auth.tsx:30:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:25:3)
+    at I18nextProvider (/Users/guillaume/Documents/Perso/doublecard/node_modules/react-i18next/dist/commonjs/I18nextProvider.js:13:19)
+    at AppWithTranslation
+    at AppContainer (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/render.js:27:952)
+API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
+Browserslist: caniuse-lite is outdated. Please run:
+npx browserslist@latest --update-db
+
+Why you should do it regularly:
+https://github.com/browserslist/browserslist#browsers-data-updating
 Error: Your `getServerSideProps` function did not return an object. Did you forget to add a `return`?
-    at renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/render.js:41:125)
+    at renderToHTML (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/render.js:41:125)
+    at runMicrotasks (<anonymous>)
     at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async /Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:112:97
-    at async /Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:105:142
-    at async DevServer.renderToHTMLWithComponents (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:137:387)
-    at async DevServer.renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:138:610)
-    at async DevServer.renderToHTML (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/server/next-dev-server.js:36:578)
-    at async DevServer.render (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:75:160)
-    at async Object.fn (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:58:672)
-    at async Router.execute (/Users/gmeheut/Documents/projects/perso/doublecard/node_modules/next/dist/next-server/server/router.js:25:67)
+    at async /Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:112:97
+    at async /Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:105:142
+    at async DevServer.renderToHTMLWithComponents (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:137:387)
+    at async DevServer.renderToHTML (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:138:1088)
+    at async DevServer.renderToHTML (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/server/next-dev-server.js:36:578)
+    at async DevServer.render (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:75:160)
+    at async Object.fn (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:48:704)
+Error: Your `getServerSideProps` function did not return an object. Did you forget to add a `return`?
+    at renderToHTML (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/render.js:41:125)
+    at async /Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:112:97
+    at async /Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:105:142
+    at async DevServer.renderToHTMLWithComponents (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:137:387)
+    at async DevServer.renderToHTML (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:138:1088)
+    at async DevServer.renderToHTML (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/server/next-dev-server.js:36:578)
+    at async DevServer.render (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:75:160)
+    at async Object.fn (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:58:672)
+    at async Router.execute (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/router.js:25:67)
+    at async DevServer.run (/Users/guillaume/Documents/Perso/doublecard/node_modules/next/dist/next-server/server/next-server.js:68:1042)
+API resolved without sending a response for /api/lobby/duno/start, this may result in stalled requests.
