@@ -2,23 +2,17 @@ import React, { FunctionComponent, useEffect, useState } from 'react'
 import { Box } from '@chakra-ui/react'
 import { Color } from '../../theme'
 import { Friends, NavBar } from 'components'
-import { TFunction } from 'next-i18next'
 import { useAuth } from 'utils'
 
 type Props = {
-  t: TFunction
   inGame?: boolean
 }
 
-export const AppInterface: FunctionComponent<Props> = ({
-  children,
-  t,
-  inGame,
-}) => {
+export const Layout: FunctionComponent<Props> = ({ children, inGame }) => {
   const { user } = useAuth()
 
   useEffect(() => {
-    // console.log('proc')
+    console.log('proc')
   })
 
   return (
@@ -30,7 +24,7 @@ export const AppInterface: FunctionComponent<Props> = ({
       justifyContent="flex-start"
       alignItems="center"
     >
-      {inGame ? null : user.id ? <NavBar t={t} user={user} /> : null}
+      {inGame ? null : user.id && <NavBar user={user} />}
       {children}
       <Friends />
     </Box>

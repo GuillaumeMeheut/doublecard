@@ -2,17 +2,18 @@ import React, { FunctionComponent, useEffect } from 'react'
 import { Box } from '@chakra-ui/react'
 import { ButtonSize, Color, ColorHover, FontSize, Spaces } from 'theme'
 import { AppButtonLink, AppImage, AppImageLink, AppText } from 'components'
-import { TFunction } from 'next-i18next'
+import { useTranslation } from 'next-i18next'
 import { User } from 'types'
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore'
-import { firestore, useAuth } from 'utils'
+import { firestore } from 'utils'
 
 type Props = {
-  t: TFunction
   user: any
 }
 
-export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
+export const NavBar: FunctionComponent<Props> = ({ user }) => {
+  const t1 = useTranslation('common')
+
   const [userData, loading] = useDocumentDataOnce<User>(
     firestore.doc(`/users/${user.id}`),
   )
@@ -50,7 +51,7 @@ export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
           backgroundColor={Color.blueMain}
           _hover={{ backgroundColor: ColorHover.blueMain }}
         >
-          {t('common:play')}
+          {t1.t('common:play')}
         </AppButtonLink>
         <AppButtonLink
           href="/rules"
@@ -62,7 +63,7 @@ export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
           backgroundColor={Color.blueMain}
           _hover={{ backgroundColor: ColorHover.blueMain }}
         >
-          {t('common:rules')}
+          {t1.t('common:rules')}
         </AppButtonLink>
         <AppButtonLink
           href="/shop"
@@ -73,7 +74,7 @@ export const NavBar: FunctionComponent<Props> = ({ t, user }) => {
           backgroundColor={Color.blueMain}
           _hover={{ backgroundColor: ColorHover.blueMain }}
         >
-          {t('common:shop')}
+          {t1.t('common:shop')}
         </AppButtonLink>
       </Box>
       <Box display="flex" alignItems="center">

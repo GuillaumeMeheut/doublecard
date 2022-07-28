@@ -4,26 +4,22 @@ import { AppButton } from 'components'
 import { Spaces } from 'theme'
 
 type Props = {
-  text1: string
-  text2: string
+  btn1: string
+  btn2: string
   onLeave: (lobby: any) => void
   onStart: (lobby: any) => void
 }
 
 export const FooterLobby: FunctionComponent<Props> = ({
-  text1,
-  text2,
+  btn1,
+  btn2,
   onLeave,
   onStart,
 }) => {
   return (
     <Box display="flex">
-      <AppButton
-        onClick={onLeave}
-        text={text1}
-        marginRight={Spaces.component}
-      />
-      <AppButton onClick={onStart} text={text2} />
+      <AppButton onClick={onLeave} text={btn1} marginRight={Spaces.component} />
+      <AppButton onClick={onStart} text={btn2} />
     </Box>
   )
 }

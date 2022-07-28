@@ -59,8 +59,7 @@ export const SelectGame: FunctionComponent<Props> = ({
               justifySelf="center"
               marginBottom={Spaces.component}
               paddingX={Spaces.component}
-              borderRadius={ComponentSize.borderRadius}
-              border={`3px solid ${
+              borderBottom={`3px solid ${
                 selectedGame === game.id ? Color.whiteMain : 'transparent'
               }`}
             >
@@ -72,22 +71,20 @@ export const SelectGame: FunctionComponent<Props> = ({
                 image={{ objectFit: 'fill' }}
                 onClick={() => setGame(game.id)}
               />
-              {selectedGame === game.id ? null : (
-                <Tooltip
-                  hasArrow
-                  placement="bottom"
-                  label={t('init:check_rule')}
-                  aria-label="A tooltip"
-                >
-                  <AppImageLink
-                    src="/assets/init/help.svg"
-                    href={game.rule}
-                    width="24px"
-                    height="24px"
-                    cursor="pointer"
-                  />
-                </Tooltip>
-              )}
+              <Tooltip
+                hasArrow
+                placement="bottom"
+                label={t('init:check_rule')}
+                aria-label="A tooltip"
+              >
+                <AppImageLink
+                  src="/assets/init/help.svg"
+                  href={game.rule}
+                  width="24px"
+                  height="24px"
+                  cursor="pointer"
+                />
+              </Tooltip>
             </Box>
           )
         })}

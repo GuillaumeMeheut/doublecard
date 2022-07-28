@@ -3,7 +3,7 @@ import {
   AppButton,
   AppHead,
   AppInputSearch,
-  AppInterface,
+  Layout,
   AppText,
   LobbyCardDuno,
   ModalInit,
@@ -45,7 +45,7 @@ export default function Index() {
         keywords={t2.t('init:page_keywords')}
         language={t1.t('common:language')}
       />
-      <AppInterface t={t1.t}>
+      <Layout>
         <Box width="900px">
           <Box display="flex" marginBottom={['20px', '25px', '30px', '30px']}>
             <ModalInit
@@ -69,7 +69,7 @@ export default function Index() {
             )
           })}
         </Box>
-      </AppInterface>
+      </Layout>
     </>
   )
 }

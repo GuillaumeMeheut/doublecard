@@ -1,13 +1,18 @@
-import { Box, useToast } from '@chakra-ui/react'
-import { isAuthenticated } from 'api/autorization'
-import { AppHead, AppInterface, AppText, FooterLobby } from 'components'
+import { Box, Flex, useToast, Spinner, Center } from '@chakra-ui/react'
+import {
+  AppHead,
+  AppText,
+  FooterLobby,
+  Layout,
+  LinkInviteLobby,
+} from 'components'
 import { useLobby } from 'hooks'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useObjectVal } from 'react-firebase-hooks/database'
-import { Color } from 'theme'
+import { Color, ComponentSize } from 'theme'
 import { DunoSettingLobby } from 'types'
 import { getLanguageHeaders, Rdb } from 'utils'
 
@@ -61,30 +66,45 @@ export default function Index({ lobbyID }) {
         keywords={t2.t('lobby:page_keywords')}
         language={t1.t('common:language')}
       />
-      <AppInterface t={t1.t}>
-        <Box backgroundColor={Color.blueMain} width="80%">
+      <Layout>
+        <Flex
+          backgroundColor={Color.blueMain}
+          direction={'column'}
+          justify="center"
+          align="center"
+          width="80%"
+          minHeight={'80vh'}
+          borderRadius={ComponentSize.borderRadius}
+        >
           {loadinglobby ? (
-            <AppText>Loading...</AppText>
+            <Center>
+              <Spinner color={Color.red} size="xl" />
+            </Center>
           ) : (
-            <Box width={['90%', '90%', '90%', '90%']}>
-              <AppText>{lobby.room_name}</AppText>
-            </Box>
+            <>
+              <Flex>
+                <AppText>{lobby.room_name}</AppText>
+              </Flex>
+              <Flex>
+                <LinkInviteLobby
+                  link={'http://localhost:3000/lobby/duno/-N835S8GNaXkQwF73nO5'}
+                />
+                <FooterLobby
+                  btn1={t2.t('lobby:leave')}
+                  btn2={t2.t('lobby:start')}
+                  onLeave={() => leaveRoom(lobby)}
+                  onStart={() => onStart()}
+                />
+              </Flex>
+            </>
           )}
-          <FooterLobby
-            text1={t2.t('lobby:leave')}
-            text2={t2.t('lobby:start')}
-            onLeave={() => leaveRoom(lobby)}
-            onStart={() => onStart()}
-          />
-        </Box>
-      </AppInterface>
+        </Flex>
+      </Layout>
     </>
   )
 }
 
 export const getServerSideProps = async (context) => {
-  console.log(context)
-
   return {
     props: {
       ...(await serverSideTranslations(getLanguageHeaders(context), [

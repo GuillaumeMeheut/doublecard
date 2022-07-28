@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import { AppHead, AppInterface, AppText } from 'components'
+import { AppHead, Layout, AppText } from 'components'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Color } from 'theme'
@@ -21,11 +21,11 @@ export default function Index() {
         keywords={t2.t('rules:page_keywords')}
         language={t1.t('common:language')}
       />
-      <AppInterface t={t1.t}>
+      <Layout>
         <Box>
           <AppText>Ici c'est les regles des jeux</AppText>
         </Box>
-      </AppInterface>
+      </Layout>
     </>
   )
 }

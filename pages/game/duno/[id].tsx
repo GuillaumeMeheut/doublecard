@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react'
 import { isAuthenticated } from 'api/autorization'
 import {
   AppHead,
-  AppInterface,
+  Layout,
   Deck,
   MyHand,
   OpponentHand,
@@ -97,7 +97,7 @@ export default function Index({ gameID }) {
         keywords={t2.t('duno:page_keywords')}
         language={t1.t('common:language')}
       />
-      <AppInterface t={t1.t} inGame={true}>
+      <Layout inGame={true}>
         {game && lobby ? (
           <>
             {colorVisible ? <ColorSelector selectColor={selectColor} /> : <></>}
@@ -166,7 +166,7 @@ export default function Index({ gameID }) {
         ) : (
           'Loading...'
         )}
-      </AppInterface>
+      </Layout>
     </>
   )
 }
