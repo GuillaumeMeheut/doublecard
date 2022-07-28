@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const endGameDuno = (winner, lobby) => {
-  return axios.post(`/api/game/duno/end`, { winner, lobby })
+const endGameDuno = (winner, lobby, gameID) => {
+  return axios.post(`/api/game/duno/end`, { winner, lobby, gameID })
 }
 
 export { endGameDuno }

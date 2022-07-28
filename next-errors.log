@@ -11,93 +11,10 @@
   }
 ] 
 See more info here: https://nextjs.org/docs/messages/invalid-next-config
-[31merror[39m - ./pages/lobby/duno/[id].tsx
-Error: 
-  x Expression expected
-    ,----
- 56 | <>
-    :  ^
-    `----
-
-  x Expected ',', got 't'
-    ,----
- 69 | <AppInterface t={t1.t}>
-    :               ^
-    `----
-
-Caused by:
-    0: failed to process input file
-    1: Syntax Error
-[31merror[39m - ./pages/lobby/duno/[id].tsx
-Error: 
-  x Expression expected
-    ,----
- 56 | <>
-    :  ^
-    `----
-
-  x Expected ',', got 't'
-    ,----
- 69 | <AppInterface t={t1.t}>
-    :               ^
-    `----
-
-Caused by:
-    0: failed to process input file
-    1: Syntax Error
-[31merror[39m - ./pages/lobby/duno/[id].tsx
-Error: 
-  x Expression expected
-    ,----
- 56 | <>
-    :  ^
-    `----
-
-  x Expected ',', got 't'
-    ,----
- 69 | <AppInterface t={t1.t}>
-    :               ^
-    `----
-
-Caused by:
-    0: failed to process input file
-    1: Syntax Error
-API resolved without sending a response for /api/lobby/leave, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/leave, this may result in stalled requests.
-[31merror[39m - ./components/general/interface.tsx
-Error: Failed to read source code from /Users/gmeheut/Documents/perso/doublecard/components/general/interface.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-[31merror[39m - ./components/general/interface.tsx
-Error: Failed to read source code from /Users/gmeheut/Documents/perso/doublecard/components/general/interface.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-[31merror[39m - ./components/general/interface.tsx
-Error: Failed to read source code from /Users/gmeheut/Documents/perso/doublecard/components/general/interface.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-[31merror[39m - ./components/general/interface.tsx
-Error: Failed to read source code from /Users/gmeheut/Documents/perso/doublecard/components/general/interface.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-[31merror[39m - ./components/general/interface.tsx
-Error: Failed to read source code from /Users/gmeheut/Documents/perso/doublecard/components/general/interface.tsx
-
-Caused by:
-    No such file or directory (os error 2)
-[31merror[39m - ./components/general/navbar.tsx
-Error: 
-  x Unexpected token `Box`. Expected jsx identifier
-    ,----
- 28 | <Box
-    :  ^^^
-    `----
-
-Caused by:
-    0: failed to process input file
-    1: Syntax Error
 API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
+API resolved without sending a response for /api/lobby/duno/start, this may result in stalled requests.
+API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
+API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
+API resolved without sending a response for /api/lobby/duno/start, this may result in stalled requests.
+API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
+API resolved without sending a response for /api/lobby/duno/start, this may result in stalled requests.

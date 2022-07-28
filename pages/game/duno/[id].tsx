@@ -28,6 +28,20 @@ export default function Index({ gameID }) {
   user.skin = 'basic'
   //Définir le skin de l'user dans l'auth comme les coins
 
+  const {
+    setGame,
+    setLobby,
+    setDeck,
+    setHand,
+    setStack,
+    deck,
+    hand,
+    colorVisible,
+    playCardDuno,
+    drawDuno,
+    selectColor,
+  } = useDuno(gameID, user)
+
   const [game, loadingGame, errorGame] = useObjectVal(Rdb.ref(`game/${gameID}`))
   const [lobby, loadingLobby, errorLobby] = useObjectVal(
     Rdb.ref(`lobby/${gameID}`),
@@ -54,20 +68,6 @@ export default function Index({ gameID }) {
       setStack(game.stack)
     }
   }, [game])
-
-  const {
-    setGame,
-    setLobby,
-    setDeck,
-    setHand,
-    setStack,
-    deck,
-    hand,
-    colorVisible,
-    playCardDuno,
-    drawDuno,
-    selectColor,
-  } = useDuno(gameID, user)
 
   const returnAreaPlayer = (index: number): string => {
     switch (index) {

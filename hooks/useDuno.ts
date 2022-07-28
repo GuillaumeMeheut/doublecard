@@ -14,18 +14,25 @@ export function useDuno(gameID, user) {
 
   const [colorVisible, setColorVisible] = useState<boolean>(false)
 
+  // useEffect(() => {
+  //   if (game) {
+  //     console.log(game.players[user.id].hand)
+  //     if (game.players[user.id].hand === undefined) {
+  //       updateData({ status: 'gameover', winner: user.id })
+  //     }
+  //   }
+  // }, [game.players[user.id].hand])
+
   useEffect(() => {
-    if (game)
+    if (game) {
+      console.log(game.players[user.id].hand)
       if (game.players[user.id].hand === undefined) {
         updateData({ status: 'gameover', winner: user.id })
       }
-  }, [hand])
-
-  useEffect(() => {
-    if (game)
       if (game.status === 'gameover' && game.winner) {
         gameOver()
       }
+    }
   }, [game])
 
   const updateData = (parameters) => {
@@ -184,8 +191,9 @@ export function useDuno(gameID, user) {
   }
   //fin du jeu
   const gameOver = () => {
-    if (game.winner === user.id) endGameDuno(game.winner, lobby)
+    if (game.winner === user.id) endGameDuno(game.winner, lobby, gameID)
     //faire pop la popup du gagnant
+    console.log('gameover !!!!!')
   }
 
   return {

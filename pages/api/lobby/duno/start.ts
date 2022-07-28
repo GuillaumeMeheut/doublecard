@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { dealCards, getDunoDeck, Rdb, shuffleDeck } from 'utils'
+import { dealCards, getDunoDeck, Rdb, shuffleDeck, firestore } from 'utils'
+import firebase from 'firebase/app'
 
 export default async function joinDunoLobby(
   req: NextApiRequest,
@@ -9,6 +10,20 @@ export default async function joinDunoLobby(
     const { lobby } = req.body
 
     if (lobby.players.length === lobby.nb_player) {
+      //payer la somme des coins
+      for (let i = 0; i < lobby.players.length; i++) {
+        console.log(lobby.players[i].id)
+        console.log(lobby.coin)
+        await firestore
+          .collection('users')
+          .doc(lobby.players[i].id)
+          .update({
+            coin: firebase.firestore.FieldValue.increment(-lobby.coin),
+          })
+      }
+
+      console.log('ca passe')
+
       lobby.status = 'inGame'
       Rdb.ref(`lobby/${lobby.id}`).set(lobby)
 
@@ -37,7 +52,7 @@ export default async function joinDunoLobby(
 
       //distribution des cartes
       game.players.forEach((player, index) => {
-        const nbCard = 7
+        const nbCard = 1
         const { deck, hand } = dealCards(game.deck, nbCard)
         game.deck = deck
         game.players[index].hand = hand
