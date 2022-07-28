@@ -7,7 +7,7 @@
     "node": "14"
   },
   "scripts": {
-    "dev": "next dev -p 4000 2> next-errors.log",
+    "dev": "next dev -p 3000 2> next-errors.log",
     "build": "next build",
     "deploy2": "cross-env NODE_ENV=production firebase deploy --only functions,hosting",
     "deploy": "firebase deploy --only functions,hosting",
