@@ -82,7 +82,7 @@ export default function Index({ lobbyID }) {
   )
 }
 
-export const getServerSideProps = isAuthenticated(async (context) => {
+export const getServerSideProps = async (context) => {
   console.log(context)
 
   return {
@@ -94,4 +94,4 @@ export const getServerSideProps = isAuthenticated(async (context) => {
       lobbyID: context.query.id,
     },
   }
-})
+}

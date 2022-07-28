@@ -171,7 +171,7 @@ export default function Index({ gameID }) {
   )
 }
 
-export const getServerSideProps = isAuthenticated(async (context) => {
+export const getServerSideProps = async (context) => {
   return {
     props: {
       ...(await serverSideTranslations(getLanguageHeaders(context), [
@@ -182,4 +182,4 @@ export const getServerSideProps = isAuthenticated(async (context) => {
       gameID: context.query.id,
     },
   }
-})
+}
