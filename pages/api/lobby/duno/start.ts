@@ -52,7 +52,7 @@ export default async function joinDunoLobby(
 
       //distribution des cartes
       game.players.forEach((player, index) => {
-        const nbCard = 1
+        const nbCard = 7
         const { deck, hand } = dealCards(game.deck, nbCard)
         game.deck = deck
         game.players[index].hand = hand

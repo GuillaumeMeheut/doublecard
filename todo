@@ -1,15 +1,12 @@
 PRIMAIRE:
--gerer qui a gagné la partie + attribution des gains
--deduire les coins lorsque la partie se lance
+-Interface winner/loser fin partie
 -Finir l'interface lobby
 -Faire l'interface in game
 
-
-
 SECONDAIRE:
--optimiser le start de duno api
--Skin dans le firestore
 -nb coin dans la navbar éviter l'appel a firestore 
 a chaque changement de page 
+-optimiser le start de duno api
+-Skin dans le firestore
 -animation du composant des choix des couleurs
 -afficher le nombre de carte a piocher actuel si > 1
