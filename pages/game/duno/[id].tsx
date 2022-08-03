@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { isAuthenticated } from 'api/autorization'
 import {
   AppHead,
@@ -82,6 +82,23 @@ export default function Index({ gameID }) {
     }
   }
 
+  const returnBgColor = (color: string): string => {
+    switch (color) {
+      case 'red':
+        return 'red'
+      case 'green':
+        return 'green'
+      case 'blue':
+        return 'blue'
+      case 'yellow':
+        return 'yellow'
+      default:
+        break
+    }
+  }
+
+  console.log(game)
+
   return (
     <>
       <AppHead
@@ -100,68 +117,79 @@ export default function Index({ gameID }) {
       <Layout inGame={true}>
         {game && lobby ? (
           <>
-            {colorVisible ? <ColorSelector selectColor={selectColor} /> : <></>}
-            {game.turn === user.id ? (
+            {colorVisible && <ColorSelector selectColor={selectColor} />}
+            {game.turn === user.id && (
               <TextZoomEffect
                 text={'Your Turn'}
                 textColor={'white'}
                 bgColor={Color.blackSecond}
               />
-            ) : (
-              <></>
             )}
-
-            <Box
-              display="grid"
-              gridTemplateAreas={`". player1 ."
+            <Flex
+              justify={'center'}
+              align="center"
+              minHeight="100vh"
+              minWidth="100vw"
+              bgColor={
+                game.color
+                  ? returnBgColor(game.color)
+                  : game.stack[game.stack.length - 1].color
+                  ? returnBgColor(game.stack[game.stack.length - 1].color)
+                  : ''
+              }
+              transition={'.3s'}
+            >
+              <Box
+                display="grid"
+                gridTemplateAreas={`". player1 ."
               "player2 cardStack player3"
               ". player4 ."`}
-            >
-              {Object.values(game.players)
-                .filter((player: any) => player.id !== user.id)
-                .map((player: any, index: number) => (
-                  <Box
-                    key={player.id}
-                    gridArea={returnAreaPlayer(index)}
-                    display="flex"
-                    flexDirection={index === 0 ? 'column-reverse' : 'column'}
-                    justifyContent="center"
-                    alignItems="center"
-                    transform={
-                      index === 1
-                        ? 'rotate(90deg)'
-                        : index === 2
-                        ? 'rotate(-90deg)'
-                        : ''
-                    }
-                  >
-                    <OpponentHand nbCard={player.nbCard} skin={'basic'} />
-                    <AvatarGame
-                      pseudo={player.pseudo}
-                      img={player.img ? player.img : null}
-                      turn={player.id === game.turn ? true : false}
-                    />
-                  </Box>
-                ))}
-              <Box
-                gridArea="cardStack"
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
               >
-                <Deck deck={deck} drawDuno={drawDuno} />
-                <CardStacks stack={game.stack[game.stack.length - 1]} />
+                {Object.values(game.players)
+                  .filter((player: any) => player.id !== user.id)
+                  .map((player: any, index: number) => (
+                    <Box
+                      key={player.id}
+                      gridArea={returnAreaPlayer(index)}
+                      display="flex"
+                      flexDirection={index === 0 ? 'column-reverse' : 'column'}
+                      justifyContent="center"
+                      alignItems="center"
+                      transform={
+                        index === 1
+                          ? 'rotate(90deg)'
+                          : index === 2
+                          ? 'rotate(-90deg)'
+                          : ''
+                      }
+                    >
+                      <OpponentHand nbCard={player.nbCard} skin={'basic'} />
+                      <AvatarGame
+                        pseudo={player.pseudo}
+                        img={player.img ? player.img : null}
+                        turn={player.id === game.turn ? true : false}
+                      />
+                    </Box>
+                  ))}
+                <Box
+                  gridArea="cardStack"
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <Deck deck={deck} drawDuno={drawDuno} />
+                  <CardStacks stack={game.stack[game.stack.length - 1]} />
+                </Box>
+                <Box gridArea="player4">
+                  <MyHand hand={hand} playCardDuno={playCardDuno} user={user} />
+                  <AvatarGame
+                    pseudo={user.pseudo}
+                    img={user.img}
+                    turn={user.id === game.turn ? true : false}
+                  />
+                </Box>
               </Box>
-              <Box gridArea="player4">
-                <MyHand hand={hand} playCardDuno={playCardDuno} user={user} />
-                <AvatarGame
-                  pseudo={user.pseudo}
-                  img={user.img}
-                  turn={user.id === game.turn ? true : false}
-                />
-                )
-              </Box>
-            </Box>
+            </Flex>
           </>
         ) : (
           'Loading...'

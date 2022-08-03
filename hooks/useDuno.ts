@@ -25,7 +25,6 @@ export function useDuno(gameID, user) {
 
   useEffect(() => {
     if (game) {
-      console.log(game.players[user.id].hand)
       if (game.players[user.id].hand === undefined) {
         updateData({ status: 'gameover', winner: user.id })
       }
@@ -193,7 +192,6 @@ export function useDuno(gameID, user) {
   const gameOver = () => {
     if (game.winner === user.id) endGameDuno(game.winner, lobby, gameID)
     //faire pop la popup du gagnant
-    console.log('gameover !!!!!')
   }
 
   return {
