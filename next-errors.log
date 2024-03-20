@@ -1,7 +1,6 @@
  [33m[1m⚠[22m[39m Invalid next.config.js options detected: 
  [33m[1m⚠[22m[39m     Unrecognized key(s) in object: 'handleImages'
  [33m[1m⚠[22m[39m See more info here: https://nextjs.org/docs/messages/invalid-next-config
- [33m[1m⚠[22m[39m Minimum recommended TypeScript version is v4.5.2, older versions can potentially be incompatible with Next.js. Detected: 4.3.5
  [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
-API resolved without sending a response for /api/lobby/create, this may result in stalled requests.
-API resolved without sending a response for /api/lobby/leave, this may result in stalled requests.
+[chakra-ui]: createBreakpoints(...) will be deprecated pretty soonsimply pass the breakpoints as an object. Remove the createBreakpoints(..) call
+[chakra-ui]: createBreakpoints(...) will be deprecated pretty soonsimply pass the breakpoints as an object. Remove the createBreakpoints(..) call
