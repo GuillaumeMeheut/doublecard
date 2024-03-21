@@ -1,6 +1,7 @@
  [33m[1m⚠[22m[39m Invalid next.config.js options detected: 
  [33m[1m⚠[22m[39m     Unrecognized key(s) in object: 'handleImages'
  [33m[1m⚠[22m[39m See more info here: https://nextjs.org/docs/messages/invalid-next-config
- [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+[chakra-ui]: createBreakpoints(...) will be deprecated pretty soonsimply pass the breakpoints as an object. Remove the createBreakpoints(..) call
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
 [chakra-ui]: createBreakpoints(...) will be deprecated pretty soonsimply pass the breakpoints as an object. Remove the createBreakpoints(..) call
 [chakra-ui]: createBreakpoints(...) will be deprecated pretty soonsimply pass the breakpoints as an object. Remove the createBreakpoints(..) call
