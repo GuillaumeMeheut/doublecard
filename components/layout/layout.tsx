@@ -1,10 +1,11 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, { FunctionComponent, ReactNode, useEffect, useState } from 'react'
 import { Box } from '@chakra-ui/react'
 import { Color } from '../../theme'
 import { Friends, NavBar } from 'components'
 import { useAuth } from 'utils'
 
 type Props = {
+  children: ReactNode
   inGame?: boolean
 }
 

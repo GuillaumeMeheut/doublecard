@@ -12,7 +12,9 @@
     "deploy2": "cross-env NODE_ENV=production firebase deploy --only functions,hosting",
     "deploy": "firebase deploy --only functions,hosting",
     "start": "next start",
+    "type-check": "tsc --noEmit",
     "prepare": "husky install",
+    "pre-push": "yarn type-check",
     "lint": "eslint --quiet --ext js,jsx,ts,tsx --fix",
     "prettier": "prettier --loglevel silent --write ."
   },

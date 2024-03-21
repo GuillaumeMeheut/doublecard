@@ -1,5 +1,4 @@
 import { Box, Flex } from '@chakra-ui/react'
-import { isAuthenticated } from 'api/autorization'
 import {
   AppHead,
   Layout,
@@ -96,8 +95,6 @@ export default function Index({ gameID }) {
         break
     }
   }
-
-  console.log(game)
 
   return (
     <>

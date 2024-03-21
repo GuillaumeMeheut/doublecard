@@ -1,0 +1,9 @@
+**/*.json
+**/ddl.js
+**/cml.js
+lint-staged.config.js
+src/gateway/widgets/**/*
+test/data-view/node_modules/**/*
+src/gateway/lib/compiler/__tests__/extendedUserInfo.spec.ts
+**/*.hbs
+plopfile.js
