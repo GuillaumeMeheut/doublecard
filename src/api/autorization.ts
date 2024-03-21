@@ -1,11 +1,8 @@
 import {
-  NextApiHandler,
-  NextApiRequest,
-  NextApiResponse,
   NextPageContext,
 } from 'next'
-import { adminAuth } from 'utils/firebase/adminFirebase'
 import nookies from 'nookies'
+import { adminAuth } from '../utils/firebase/adminFirebase'
 
 export const isAuthenticated = (fn) => async (context: NextPageContext) => {
   try {

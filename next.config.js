@@ -6,6 +6,7 @@ module.exports = {
   images: {
     domains: ['picsum.photos'],
   },
+  api: { path: './src/pages/api' },
 }
 
 module.exports = withOptimizedImages({

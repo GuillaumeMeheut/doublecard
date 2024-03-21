@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { DunoSettingInGame } from '../types'
 import { Rdb } from '../utils'
 import { useDeck, useHand, useStack } from '.'
+import { endGameDuno } from '../api'
 
 export function useDuno(gameID, user) {
   const [game, setGame] = useState<DunoSettingInGame>()

@@ -1,8 +1,8 @@
 import { useToast } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import createLobby from '../pages/api/lobby/create'
 import { useAuth } from '../utils'
+import { createLobby, joinRoomApi, leaveRoomApi, startGameApi } from '../api'
 
 export function useLobby() {
   const [loading, setLoading] = useState(false)
