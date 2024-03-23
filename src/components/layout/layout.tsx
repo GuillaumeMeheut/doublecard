@@ -12,10 +12,6 @@ type Props = {
 export const Layout: FunctionComponent<Props> = ({ children, inGame }) => {
   const { user } = useAuth()
 
-  useEffect(() => {
-    // console.log('proc')
-  })
-
   return (
     <Box
       minHeight={'100vh'}

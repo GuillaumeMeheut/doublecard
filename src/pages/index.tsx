@@ -30,6 +30,8 @@ export default function Index() {
     switch (setting.type) {
       case 'DUNO':
         return <LobbyCardDuno key={setting.id} t={t2.t} setting={setting} />
+      default:
+        return <></>
     }
   }
 

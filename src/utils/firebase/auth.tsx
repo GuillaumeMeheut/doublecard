@@ -11,7 +11,6 @@ const authContext = createContext({
   sendPasswordResetEmail: undefined,
   confirmPasswordReset: undefined,
 })
-
 export function ProvideAuth({ children }) {
   const auth = useProvideAuth()
   return <authContext.Provider value={auth}>{children}</authContext.Provider>
@@ -22,7 +21,7 @@ export const useAuth = () => {
 }
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(undefined)
 
   const signin = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password).then((response) => {
@@ -52,7 +51,7 @@ function useProvideAuth() {
 
   const signout = () => {
     return auth.signOut().then(() => {
-      setUser(false)
+      setUser(undefined)
       nookies.destroy(undefined, 'token')
     })
   }
@@ -76,7 +75,7 @@ function useProvideAuth() {
       if (user) {
         setUser(user)
       } else {
-        setUser(false)
+        setUser(undefined)
       }
     })
 
@@ -89,12 +88,12 @@ function useProvideAuth() {
         setUser(user)
         const token = await user.getIdToken()
         nookies.set(undefined, 'token', token, {
-          //1jour
+          //1day
           maxAge: 24 * 60 * 60,
           path: '/',
         })
       } else {
-        setUser(false)
+        setUser(undefined)
         nookies.set(undefined, 'token', '', {})
       }
     })

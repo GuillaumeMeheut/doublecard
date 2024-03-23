@@ -16,16 +16,11 @@ export const MyHand: FunctionComponent<Props> = ({
   playCardDuno,
 }) => {
   if (hand) {
-    hand.sort((a, b) => {
-      if (a.value > b.value) return 1
-      if (a.value < b.value) return -1
-    })
+    hand.sort((a, b) => a.value - b.value)
 
     hand.sort((a, b) => {
       if (b.color === 'special') return -1
-      if (a.color > b.color) return 1
-      if (a.color < b.color) return -1
-      return 0
+      return a.color.localeCompare(b.color)
     })
   }
 
