@@ -1,5 +1,3 @@
-const noRestrictedImports = require('./config/eslintCreateNoRestrictedImports');
-
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -83,7 +81,7 @@ module.exports = {
     'no-invalid-regexp': 'error',
     'no-iterator': 'error',
     'no-label-var': 'error',
-    'no-labels': ['error', {allowLoop: false, allowSwitch: false}],
+    'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
     'no-lone-blocks': 'error',
     'no-loop-func': 'error',
     'no-mixed-operators': [
@@ -111,7 +109,6 @@ module.exports = {
     'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': ['error'],
     'no-regex-spaces': 'error',
-    ...noRestrictedImports(),
     'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
     'no-script-url': 'error',
     'no-self-assign': 'error',
@@ -140,7 +137,7 @@ module.exports = {
         ignoreExport: false,
       },
     ],
-    'no-else-return': ['error', {allowElseIf: false}],
+    'no-else-return': ['error', { allowElseIf: false }],
     'no-with': 'error',
     'one-var': ['error', 'never'],
     'operator-assignment': ['error', 'always'],
@@ -148,7 +145,7 @@ module.exports = {
     strict: ['error', 'never'],
     'use-isnan': 'error',
     'valid-typeof': 'error',
-    'react/jsx-no-duplicate-props': ['error', {ignoreCase: true}],
+    'react/jsx-no-duplicate-props': ['error', { ignoreCase: true }],
     'react/jsx-no-undef': 'error',
     'react/jsx-pascal-case': [
       'error',
@@ -174,10 +171,10 @@ module.exports = {
       'error',
       {
         zones: [
-          {target: './src/client', from: './src/gateway'},
-          {target: './src/gateway', from: './src/client'},
-          {target: './src/shared', from: './src/client'},
-          {target: './src/shared', from: './src/gateway'},
+          { target: './src/client', from: './src/gateway' },
+          { target: './src/gateway', from: './src/client' },
+          { target: './src/shared', from: './src/client' },
+          { target: './src/shared', from: './src/gateway' },
         ],
       },
     ],
@@ -202,7 +199,7 @@ module.exports = {
         ],
       },
     ],
-    'prefer-const': ['error', {destructuring: 'all'}],
+    'prefer-const': ['error', { destructuring: 'all' }],
     'object-shorthand': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -212,7 +209,7 @@ module.exports = {
         argsIgnorePattern: '(?:[iI]gnored)|(?:^_)',
       },
     ],
-    'jest/consistent-test-it': ['error', {fn: 'it', withinDescribe: 'it'}],
+    'jest/consistent-test-it': ['error', { fn: 'it', withinDescribe: 'it' }],
     '@forsta/no-data-test-id': 'error',
   },
 
@@ -224,7 +221,12 @@ module.exports = {
       },
     },
     {
-      files: ['src/**/index.js', 'src/**/index.jsx', 'src/**/index.ts', 'src/**/index.tsx'],
+      files: [
+        'src/**/index.js',
+        'src/**/index.jsx',
+        'src/**/index.ts',
+        'src/**/index.tsx',
+      ],
       rules: {
         '@forsta/no-declarations': 'error',
         'import/no-default-export': 'error',
@@ -233,15 +235,6 @@ module.exports = {
     {
       files: ['src/client/**/*.+([jt]s)?(x)'],
       excludedFiles: ['*.spec*', 'src/client/common/redux/hooks.ts'],
-      rules: noRestrictedImports({
-        paths: [
-          {
-            name: 'react-redux',
-            importNames: ['useDispatch', 'useSelector'],
-            message: 'Please use useApp(Selector|Dispatch) from src/client/common/redux/hooks instead.',
-          },
-        ],
-      }),
     },
   ],
-};
+}

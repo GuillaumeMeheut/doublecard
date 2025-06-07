@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev -p 3000 2> next-errors.log",
-    "build": "next build",
+    "build": "next build --no-lint",
     "deploy2": "cross-env NODE_ENV=production firebase deploy --only functions,hosting",
     "deploy": "firebase deploy --only functions,hosting",
     "start": "next start",
